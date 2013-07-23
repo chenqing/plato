@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>完整demo</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript" charset="utf-8" src="editor_config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="editor_all.js"></script>
+
+    <style type="text/css">
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <script  id="editor" type="text/plain">这里可以书写，编辑器的初始内容</script>
+</div>
+
+
+<div class="clear"></div>
+
+
+
+
+</body>
+<script type="text/javascript">
+    //实例化编辑器
+    var ue = UE.getEditor('editor');
+
+    ue.addListener('ready',function(){
+        this.focus()
+    });
+
+   
+</script>
+</html>
