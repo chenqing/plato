@@ -274,19 +274,19 @@
                                 <label class="control-label" for="password_old">密码</label>
 
                                 <div class="controls">
-                                <input class="input" type="password" name="password_old" value=""><span class="help-inline">旧密码</span>
+                                <input class="input" type="password" id="password_old" name="password_old" value="" placeholder="旧密码"><span>  </span><span class="label " id="old"></span>
                                 </div>
 
                             </div>
                             <?php } ?>
                             <div class="control-group">
                                 <div class="controls">
-                                <input class="input" type="password" name="password_new_1" value=""><span class="help-inline">新密码</span>
+                                <input class="input" type="password" id="password_new_1" name="password_new_1" value="" placeholder="新密码"><span>  </span><span id="new_1" class="label "></span>
                                </div>
                              </div>
                             <div class="control-group">
                                 <div class="controls">
-                                <input class="input" type="password" name="password_new_2" value=""><span class="help-inline">再次输入新密码</span>
+                                <input class="input" type="password" id="password_new_2" name="password_new_2" value="" placeholder="再次输入新密码"><span>  </span><span id="new_2" class="label "></span>
                                 </div>
 
                             </div>

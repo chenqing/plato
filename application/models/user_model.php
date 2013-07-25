@@ -47,10 +47,11 @@ class User_model extends CI_Model
         }
     }
 
-    public function change_password($user_id,$password)
+    public function change_password($id,$password)
     {
+        $data = array('user_password' => $password);
         $this->db->where('user_id',$id);
-        $this->db->update('user',$password);
+        $this->db->update('user',$data);
         if ($this->db->affected_rows() == 1 )
         {
            return true;
@@ -93,6 +94,18 @@ class User_model extends CI_Model
          }
 
 	}
+
+    public function validate_password($password,$id)
+    {
+        $this->db->where('user_id',$id);
+        $this->db->where('user_password',$password);
+        $query = $this->db->get('user');
+        if($query->num_rows() == 1){
+            return true;
+        }
+
+        return false ;
+    }
 
     public function get_user_privilege($data)
     {

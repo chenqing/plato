@@ -155,11 +155,99 @@ $(document).ready(function(){
         }
     });
 
+    //验证旧密码
+    if($('input[name="password_old"][type="password"]').length >0){
+    $('input[name="password_old"][type="password"]').blur(function(){
+        var password = $(this).val();
+        var user_id   = $('#passwordEdit #user_id').val();
+        $.post(
+           host+'/manage/user/validate_password/'+user_id,
+            {'user_id':user_id,'password_old':password},
+            function(result){
+                if(result == 1){
+                    $('#old').addClass('label-success').html('<i class="icon-ok icon-white"></i>');
+                    return true;
+                }else{
+                    $('#old').addClass('label-important').html('<i class="icon-remove icon-white"></i>');
+                    //$(this).focus();
+                    return false;
+                }
+            }
+
+        );
+    });
+    }
+    //验证新密码1
+    $('input[name="password_new_1"][type="password"]').blur(function(){
+
+        $('#new_1').addClass('label-success').html('<i class="icon-ok icon-white"></i>');
+
+    });
+    //验证新密码2
+    $('input[name="password_new_2"][type="password"]').blur(function(){
+
+        var new_password_1 = $('input[name="password_new_1"][type="password"]').val();
+        var new_password_2 = $(this).val();
+        if(new_password_1.length >0 && new_password_1 == new_password_2){
+            $('#new_2').addClass('label-success').html('<i class="icon-ok icon-white"></i>');
+        }else{
+            $('#new_2').addClass('label-important').html('<i class="icon-remove icon-white"></i>');
+        }
+    });
     //更改密码
     $('#passwordEdit form').submit(function(e){
         e.preventDefault();
-        var user_name = $('#passwdEdit #user_name').val();
-        var user_id   = $('#passwdEdit #user_id').val();
+        var user_name = $('#passwordEdit #user_name').val();
+        var new_password_1 = $('input[name="password_new_1"][type="password"]').val();
+        var new_password_2 = $('input[name="password_new_2"][type="password"]').val();
+        if(new_password_1.length = 0){
+            alert('密码长度不能为0');
+        }
+        if(new_password_1 != new_password_2){
+            alert('没看到上面有叉叉么？');
+            return false;
+        }
+        if($('input[name="password_old"][type="password"]').length >0){
+            var old_password = $('input[name="password_old"][type="password"]').val();
+            var user_id   = $('#passwordEdit #user_id').val();
+            $.post(
+                host+'/manage/user/change_password/'+user_id,
+                {'user_id':user_id,'user_password':new_password_1,'password_old':old_password},
+                function(result){
+                    if(result == 1){
+                        $('#passwordEdit div.alert').removeClass('alert-error hide');
+                        $('#passwordEdit div.alert').addClass('alert-success fade in');
+                        $('#passwordEdit #error').html('密码更改成功成功');
+
+                        $('#passwordEdit div.alert').removeClass('fade in');
+                        setTimeout("$('#passwordEdit button.close').click();", 3000);
+                        // setTimeout("$('div.alert').remove()",3000);
+                    }else{
+                        $('#passwordEdit #error').html('密码更新失败');
+                    }
+                }
+            );
+        }else{
+            var user_id = $('#passwordEdit').find(':selected').val();
+            $.post(
+                host+'/manage/user/change_password_root/'+user_id,
+                {'user_id':user_id,'user_password':new_password_1},
+                function(result){
+                    if(result == 1){
+                        $('#passwordEdit div.alert').removeClass('alert-error hide');
+                        $('#passwordEdit div.alert').addClass('alert-success fade in');
+                        $('#passwordEdit #error').html('密码更改成功成功');
+
+                        $('#passwordEdit div.alert').removeClass('fade in');
+                        setTimeout("$('#passwordEdit button.close').click();", 3000);
+                        // setTimeout("$('div.alert').remove()",3000);
+                    }else{
+                        $('#passwordEdit #error').html('密码更新失败');
+                    }
+                }
+            );
+        }
+
 
     });
 });

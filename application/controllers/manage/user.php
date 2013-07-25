@@ -150,15 +150,14 @@ class User extends CI_Controller
     public function change_password($id)
     {
         $password = $this->User_model->get_password_by_id($id);
-        $old_paaword = $this->input->post('password_old');
-        $new_password_1 = $this->input->post('password_new_1');
-        $new_password_2 = $this->input->post('password_new_2');
-        if(sha1($old_paaword) != $password){
-               echo 2;
+        $old_password = $this->input->post('password_old');
+        $new_password = $this->input->post('user_password');
+        if(sha1($old_password) != $password){
+               return false;
         }
 
-        if($old_paaword && $new_password_1&&$new_password_2){
-            if($this->User_model->change_password($id,sha1($new_password_1))){
+        if($old_password && $new_password){
+            if($this->User_model->change_password($id,sha1($new_password))){
                 echo 1;
             }else{
                 echo 0;
@@ -168,11 +167,10 @@ class User extends CI_Controller
     }
 
     public function change_password_root($id){
-        $new_password_1 = $this->input->post('password_new_1');
-        $new_password_2 = $this->input->post('password_new_2');
+        $new_password = $this->input->post('user_password');
 
-        if($new_password_1&&$new_password_2){
-            if($this->User_model->change_password($id,sha1($new_password_1))){
+        if($new_password){
+            if($this->User_model->change_password($id,sha1($new_password))){
                 echo 1;
             }else{
                 echo 0;
@@ -180,6 +178,18 @@ class User extends CI_Controller
 
         }
 
+    }
+    public function validate_password()
+    {
+        $id = $this->uri->segment(4) ;
+        $password = $this->input->post('password_old');
+
+        if($this->User_model->validate_password(sha1($password),$id)){
+            echo 1;
+        }else{
+
+            echo 0;
+        }
     }
 
     public function validate_user()
