@@ -147,6 +147,41 @@ class User extends CI_Controller
         $this->load->view('manage/include/footer');
     }
 
+    public function change_password($id)
+    {
+        $password = $this->User_model->get_password_by_id($id);
+        $old_paaword = $this->input->post('password_old');
+        $new_password_1 = $this->input->post('password_new_1');
+        $new_password_2 = $this->input->post('password_new_2');
+        if(sha1($old_paaword) != $password){
+               echo 2;
+        }
+
+        if($old_paaword && $new_password_1&&$new_password_2){
+            if($this->User_model->change_password($id,sha1($new_password_1))){
+                echo 1;
+            }else{
+                echo 0;
+            }
+
+        }
+    }
+
+    public function change_password_root($id){
+        $new_password_1 = $this->input->post('password_new_1');
+        $new_password_2 = $this->input->post('password_new_2');
+
+        if($new_password_1&&$new_password_2){
+            if($this->User_model->change_password($id,sha1($new_password_1))){
+                echo 1;
+            }else{
+                echo 0;
+            }
+
+        }
+
+    }
+
     public function validate_user()
     {
         $this->load->library('form_validation');
@@ -178,7 +213,8 @@ class User extends CI_Controller
                 $data = array(
                     'user_name' => $this->input->post('username'),
                     'privilege' => $this->User_model->get_user_privilege($this->input->post('username')),
-                    'is_loged_in' => 1
+                    'is_loged_in' => 1,
+                    'group_id'    =>$this->User_model->get_group_id($this->input->post('username')) ,
                 );
                 $this->session->set_userdata($data);
                 if($this->input->post('remmber')){

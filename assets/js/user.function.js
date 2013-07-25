@@ -154,4 +154,12 @@ $(document).ready(function(){
             );
         }
     });
+
+    //更改密码
+    $('#passwordEdit form').submit(function(e){
+        e.preventDefault();
+        var user_name = $('#passwdEdit #user_name').val();
+        var user_id   = $('#passwdEdit #user_id').val();
+
+    });
 });

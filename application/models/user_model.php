@@ -15,6 +15,12 @@ class User_model extends CI_Model
         $query = $this->db->get('user',$start ,$offset);
         return $query->result();
     }
+
+    public function get_all_user()
+    {
+        $query = $this->db->get('user');
+        return $query->result();
+    }
 	
 
 	public function get_user_by_name($name)
@@ -30,7 +36,50 @@ class User_model extends CI_Model
 		$query = $this->db->get('user');
         return $query->result_array();
 	}
-	
+
+    public function get_password_by_id($id)
+    {
+        $this->db->select('user_password');
+        $this->db->where('user_id',$id);
+        $query = $this->db->get('user');
+        foreach($query->result() as $user){
+            return $user->user_password;
+        }
+    }
+
+    public function change_password($user_id,$password)
+    {
+        $this->db->where('user_id',$id);
+        $this->db->update('user',$password);
+        if ($this->db->affected_rows() == 1 )
+        {
+           return true;
+        }
+
+        return false ;
+
+    }
+    public function get_group_id($user_name)
+    {
+        $this->db->select('group_id');
+        $this->db->where('user_name',$user_name);
+        $query = $this->db->get('user');
+        foreach($query->result() as $group){
+            return $group->group_id;
+        }
+
+    }
+
+    public function get_user_id($user_name)
+    {
+        $this->db->select('user_id');
+        $this->db->where('user_name',$user_name);
+        $query = $this->db->get('user');
+        foreach($query->result() as $user){
+            return $user->user_id;
+        }
+
+    }
 	public function add_user($data)
 	{
 		$this->db->insert('user',$data);
