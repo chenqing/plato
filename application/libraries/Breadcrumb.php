@@ -14,6 +14,7 @@ class breadcrumb
         'node'  => '节点管理',
         'server' => '服务器管理',
         'other'  => '其它',
+        'index'  => '首页'
     );
     protected $CI;
 
@@ -32,6 +33,10 @@ class breadcrumb
 
                 return $this->node[$index] ;
             }
+        }
+
+        if( ! $this->CI->uri->segment(2)){
+            return $this->node['index'];
         }
 
         return false ;

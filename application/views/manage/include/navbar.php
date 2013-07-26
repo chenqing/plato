@@ -29,7 +29,7 @@ elseif(! $this->session->userdata('is_loged_in'))
                         ?>
                     </p>
                     <ul class="nav">
-                        <li class="active"><a href="#">首页</a></li>
+                        <li class="active"><a href="<?php echo base_url('manage/') ;?>">首页</a></li>
                         <li><a href="#">节点管理</a></li>
                         <li><a href="#">设备管理</a></li>
                         <li><a href="#">作图管理</a></li>
@@ -55,7 +55,7 @@ elseif(! $this->session->userdata('is_loged_in'))
 
     <div class="row">
         <ul class="breadcrumb">
-            <li><a href="#">首页</a> <span class="divider">/</span></li>
+            <li><a href="#">柏拉图</a> <span class="divider">/</span></li>
             <li><a href="<?php echo $breadcrumb_link; ?>"><?php echo $breadcrumb; ?></a> <span class="divider">/</span></li>
             <li class="active">查看</li>
         </ul>

@@ -240,7 +240,7 @@ class User extends CI_Controller
 
                 $this->input->set_cookie($cookie);
                 }
-                redirect('manage/user');
+                redirect('manage/index');
             }
             else
             {
@@ -266,3 +266,5 @@ class User extends CI_Controller
         redirect('manage/user/login');
     }
 }
+
+///////////

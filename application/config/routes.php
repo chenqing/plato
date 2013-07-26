@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "manage/user";
+$route['default_controller'] = "manage/index";
 $route['404_override'] = 'not_found';
 
 /* End of file routes.php */

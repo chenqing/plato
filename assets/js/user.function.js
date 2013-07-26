@@ -200,7 +200,7 @@ $(document).ready(function(){
         var user_name = $('#passwordEdit #user_name').val();
         var new_password_1 = $('input[name="password_new_1"][type="password"]').val();
         var new_password_2 = $('input[name="password_new_2"][type="password"]').val();
-        if(new_password_1.length = 0){
+        if(new_password_1.length == 0 || new_password_2.length == 0){
             alert('密码长度不能为0');
         }
         if(new_password_1 != new_password_2){
