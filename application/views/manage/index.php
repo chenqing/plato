@@ -1,9 +1,10 @@
 <div class="tabbable tabs-left" style="min-height: 400px;">
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#lA"><i class="icon-search  icon-3x"></i>  万能搜索</a></li>
-        <li class=""><a data-toggle="tab" href="#lB"><i class="  icon-comment  icon-3x"></i>  留言吧</a></li>
-        <li class=""><a data-toggle="tab" href="#lC"><i class="icon-github  icon-3x"></i>git简易使用</a></li>
-        <li class=""><a data-toggle="tab" href="#lD"><i class="icon-coffee  icon-3x"></i>  图表汇总</a></li>
+
+        <li class=""><a data-toggle="tab" href="#lC"><i class="icon-github  icon-3x"></i>  git教程</a></li>
+        <li class=""><a data-toggle="tab" href="#lB"><i class="   icon-comments  icon-3x"></i>  有事留言</a></li>
+        <li class=""><a data-toggle="tab" href="#lD"><i class=" icon-h-sign  icon-3x"></i>  批量运行</a></li>
         <li class=""><a data-toggle="tab" href="#lE"><i class="icon-spinner icon-spin icon-3x"></i>  再加点啥</a></li>
         <li></li>
         <li></li>
