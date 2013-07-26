@@ -10,9 +10,9 @@
         <li></li>
     </ul>
     <div class="tab-content">
-        <div id="lA" class="tab-pane active">
+        <div id="lA" class="tab-pane active" style="min-height: 420px; overflow: hidden;">
             <div class="container">
-                <div class="row" style="min-height: 420px;">
+                <div class="row" style="min-height: 420px; overflow: hidden;">
                     <div class="span3">
                     </div>
                     <div class="span6">
