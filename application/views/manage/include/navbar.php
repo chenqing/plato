@@ -30,9 +30,9 @@ elseif(! $this->session->userdata('is_loged_in'))
                     </p>
                     <ul class="nav">
                         <li class="active"><a href="<?php echo base_url('manage/') ;?>">首页</a></li>
-                        <li><a href="#">节点管理</a></li>
-                        <li><a href="#">设备管理</a></li>
-                        <li><a href="#">作图管理</a></li>
+                        <li><a href="<?php echo base_url('manage/node') ;?>">节点管理</a></li>
+                        <li><a href="<?php echo base_url('manage/server') ;?>">设备管理</a></li>
+                        <li><a href="<?php echo base_url('manage/pic') ;?>">作图管理</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">用户管理<b class="caret"></b></a>
                             <ul class="dropdown-menu">
