@@ -42,9 +42,9 @@ class Group_model extends CI_Model
             $this->db->where('group_id',$this->uri->segment(4));
             $this->db->update('group',$data);
             if($this->db->affected_rows() == 1)
-                echo 1;
+                return true;
             else
-                echo 0;
+                return false;
     }
 
     public function get_group_name($id)

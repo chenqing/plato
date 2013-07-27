@@ -26,7 +26,7 @@ $(document).ready(function(){
                     $(' #userAdd div.alert').removeClass('hide');
                     $('div.alert').addClass('alert-success');
                     $('#userAdd #error').html('用户添加成功');
-                    setTimeout("$('div.alert').removeClass('fade in');", 2000);
+                    //setTimeout("$('div.alert').removeClass('fade in');", 2000);
                     // setTimeout("$('div.alert').addClass('fade out');", 2000);
                     setTimeout("$('button.close').click();", 4000);
                     setTimeout("$('div.alert').hide()",3000);

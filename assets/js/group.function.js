@@ -89,6 +89,11 @@ $(document).ready(function(){
             var group_desc = $('#groupEdit #group_desc').val();
             var group_id = $('#groupEdit #group_id').val();
             //var group_id = $(this).attr('data-id');
+
+            var l = $('td:contains('+group_id+')');
+            var g_name = l.next();
+            var g_desc = l.next().next();
+
             if(group_name.length >0){
                 $.post(
                     host+'/manage/group/group_edit/'+group_id,
@@ -99,16 +104,20 @@ $(document).ready(function(){
 
                         if(result)
                         {
-                            $('div.alert').removeClass('alert-error');
-                            $('div.alert').removeClass('hide');
-                            $('div.alert').addClass('alert-success');
+                            $('div.alert').removeClass('alert-error hide ');
+                            $('div.alert').addClass('alert-success fade in');
                             $('#groupEdit #error').html('用户组编辑成功');
+                            g_name.text(group_name);
+                            g_desc.text(group_desc);
+
+                            //$('div.alert').removeClass('fade in');
+                            setTimeout("$('button.close').click();", 3000);
 
 
                         }else{
                             $('#groupEdit #error').html('用户组编辑失败');
                         }
-                        $('div.alert').addClass('hide');
+                        //$('#groupEdit div.alert').addClass('hide');
                         // setTimeout("window.location.reload()", 2000);
                     }
             );

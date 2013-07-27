@@ -68,7 +68,6 @@
                         <button type="button" class="close" data-dismiss="alert">×</button>
                         <p id="error"></p>
                     </div>
-
                     <form class="form-horizontal" method="post" >
                         <fieldset>
 

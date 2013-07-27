@@ -1,3 +1,4 @@
+
 <div class="tabbable tabs-left" style="min-height: 400px;">
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#lA"><i class="icon-search  icon-3x"></i>  万能搜索</a></li>
@@ -49,10 +50,37 @@
 
         </div>
         <div id="lD" class="tab-pane">
-            <p>What up girl, this is Section C.</p>
+            <iframe src="http://112.25.34.10:60000/hello.html" width="100%" align="center" height="420px" frameborder="0" scrolling="auto"></iframe>
+
         </div>
         <div id="lE" class="tab-pane">
-            <p>What up girl, this is Section C.</p>
+            <ul class="nav nav-tabs" id="myTab">
+                <li class="active"><a href="#home">Linux</a></li>
+                <li><a href="#profile">程序设计</a></li>
+                <li><a href="#messages">网络相关</a></li>
+                <li><a href="#settings">技术潮流</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="home">
+                    <iframe src="http://www.shencan.net" width="100%" align="center" height="420px" frameborder="0" scrolling="auto">
+
+                    </iframe>
+
+                </div>
+                <div class="tab-pane" id="profile">2</div>
+                <div class="tab-pane" id="messages">3</div>
+                <div class="tab-pane" id="settings">4</div>
+            </div>
+            <script>
+                $('#myTab a').click(function (e) {
+                    e.preventDefault();
+                    $(this).tab('show');
+                })
+
+            </script>
+
+
         </div>
     </div>
 </div>

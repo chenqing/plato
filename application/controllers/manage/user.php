@@ -8,20 +8,6 @@
 
 class User extends CI_Controller
 {
-	/*
-	 *	定义权限常量，利用位的与（&）验证用户是不是拥有该权限，利用位的或（|）来	
-	 *	赋予用户一定的权限
-	 */
-
-	const VISIT = 2 ; //默认的访客权限
-
-	const CREATE = 4 ; //创建一个东西的权限
-
-	const MODIFY = 8 ; //修改一个东西的权限
-
-	const DELETE = 16 ; //删除一个东西的权限
-
-	const STANDARD   =  32 ; // 标准权限，可以干一些自定义的事情
 
 	/*
 	 *	重载父类的析构函数，以及装载一些必须的助手和库文件
@@ -70,7 +56,7 @@ class User extends CI_Controller
 
         $data['user_name'] = $this->input->post('user_name');
         $data['group_id'] = $this->input->post('group_id');
-        $data['user_password'] = sha1('123456');
+        $data['user_password'] = sha1('cpis@cc');
         $data['user_privilege'] = array();
         $temp = explode(':',$this->input->post('user_privilege'));
         foreach( $temp  as $pri)

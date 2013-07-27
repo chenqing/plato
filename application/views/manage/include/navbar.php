@@ -1,10 +1,4 @@
-<?php
-if($this->input->cookie('user_name',TRUE)){
 
-}
-elseif(! $this->session->userdata('is_loged_in'))
-    redirect('manage/user/login');
-?>
     <!-- navbar start -->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
@@ -23,9 +17,13 @@ elseif(! $this->session->userdata('is_loged_in'))
                               ?>
                       </a>&nbsp &nbsp
                         <?php
-                        if($this->session->userdata('is_loged_in'))
+                        if($this->session->userdata('is_loged_in')){
 
                         echo '<a href="'.base_url('manage/user/logout').'" class="navbar-link" style="color: #FFFFFF;">登出</a>';
+                        }else{
+                            echo '  <button class="btn btn-small btn-inverse" type="button">登陆</button>
+';
+                        }
                         ?>
                     </p>
                     <ul class="nav">
