@@ -44,13 +44,12 @@ class permission
         return (isset($pri) and is_numeric($pri)) ? $pri:2;
     }
 
-    private function get_group()
+    public function get_group()
     {
         $group_id = $this->CI->session->userdata('group_id');
-        $group_name = $this->CI->Group_model->get_group_name($group_id);
-        $name = (! empty($group_name))?$group_name:'guest';
-
-        return $name ;
+        $name = $this->CI->Group_model->get_group_name($group_id);
+        $group_name = (!empty($name))?$name:'guest';
+        return $group_name ;
     }
     public function has_visit_permission()
     {

@@ -1,16 +1,17 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * @author qing.chen@chinacache.com
- * @desc	a CI controller index
+ * @desc	a CI controller manage oic
  * @since 0.1
- * @date  2013-03-07
+ * @date  2013-07-08
  */
 
-class Index extends CI_Controller
+class Pic extends CI_Controller
 {
- /*
- *	重载父类的析构函数，以及装载一些必须的助手和库文件
- */
+
+    /*
+     *	重载父类的析构函数，以及装载一些必须的助手和库文件
+     */
 
     public function __construct()
     {
@@ -27,6 +28,7 @@ class Index extends CI_Controller
         $this->load->library('permission');
         $this->config->load('pagination');
         $this->load->helper('date');
+
     }
 
     public function index()
@@ -36,8 +38,7 @@ class Index extends CI_Controller
         //var_dump($this->breadcrumb->get_link());
         $this->load->view('manage/include/header',$data);
         $this->load->view('manage/include/navbar',$data);
-        $this->load->view('manage/index');
+        $this->load->view('manage/pic');
         $this->load->view('manage/include/footer');
     }
-
 }

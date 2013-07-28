@@ -63,7 +63,7 @@
 
             <div class="tab-content">
                 <div class="tab-pane active" id="home">
-                    <iframe src="http://www.shencan.net" width="100%" align="center" height="420px" frameborder="0" scrolling="auto">
+                    <iframe src="#" width="100%" align="center" height="420px" frameborder="0" scrolling="auto">
 
                     </iframe>
 

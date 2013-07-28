@@ -11,9 +11,14 @@
                 <a href="/" class="brand"><img src="<?php echo base_url().'assets/img/logo.jpg'?>"   style="padding:0px; height: auto;" width=100px height=45px  alt=""></a>
                 <div class="nav-collapse collapse">
                     <p class="navbar-text pull-right" >
-                     <span class=" icon-user  icon-white"></span> <a href="#" class="navbar-link" style="color: #FFFFFF;">
+
                             <?php
-                            if($this->session->userdata('user_name')) echo $this->session->userdata('user_name');
+                            if($this->session->userdata('user_name')) {
+                            ?>
+                        <span class=" icon-user  icon-white"></span> <a href="#" class="navbar-link" style="color: #FFFFFF;">
+                            <?php
+                                echo $this->session->userdata('user_name');
+                            }
                               ?>
                       </a>&nbsp &nbsp
                         <?php
@@ -21,16 +26,19 @@
 
                         echo '<a href="'.base_url('manage/user/logout').'" class="navbar-link" style="color: #FFFFFF;">登出</a>';
                         }else{
-                            echo '  <button class="btn btn-small btn-inverse" type="button">登陆</button>
-';
-                        }
-                        ?>
+                            ?>
+
+                            <a  class="btn btn-small btn-inverse" style="color: #ffffff;" href="<?php echo base_url('manage/user/login');?>"> 登陆 </a>
+
+                        <?php }?>
                     </p>
                     <ul class="nav">
                         <li class="active"><a href="<?php echo base_url('manage/') ;?>">首页</a></li>
-                        <li><a href="<?php echo base_url('manage/node') ;?>">节点管理</a></li>
+
+                        <li><a  href="<?php echo base_url('manage/node') ;?>">节点管理</a></li>
                         <li><a href="<?php echo base_url('manage/server') ;?>">设备管理</a></li>
                         <li><a href="<?php echo base_url('manage/pic') ;?>">作图管理</a></li>
+                        <?php if($this->permission->is_operation() ||$this->permission->is_root() ){ ?>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">用户管理<b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -40,6 +48,7 @@
                                 <li class="nav-header">基于linux用户设计</li>
                             </ul>
                         </li>
+                        <?php }?>
                     </ul>
                 </div>
             </div>

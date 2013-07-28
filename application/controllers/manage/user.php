@@ -25,8 +25,10 @@ class User extends CI_Controller
         $this->load->library('pagination');
         $this->load->library('user_agent');
         $this->load->library('breadcrumb');
+        $this->load->library('permission');
         $this->config->load('pagination');
         $this->load->helper('date');
+
 	}
 	
 	/**
@@ -249,7 +251,7 @@ class User extends CI_Controller
     public function logout()
     {
         $this->session->sess_destroy();
-        redirect('manage/user/login');
+        redirect('manage/index/');
     }
 }
 
