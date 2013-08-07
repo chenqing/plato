@@ -49,6 +49,21 @@ class Node_model extends CI_Model
         }
     }
 
+    public function get_node_id($node_name)
+    {
+        $this->db->where('node_name',$node_name);
+        $this->db->where('node_parent_id !=',0);
+        $query = $this->db->get('node');
+        if($query->result()){
+            foreach($query->result() as $v){
+                return $v->node_id;
+            }
+        }
+
+        return false ;
+    }
+
+
     public function get_node_name_json()
     {
         $this->db->select('node_id,node_name');

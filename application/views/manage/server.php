@@ -24,9 +24,10 @@
 
         <form class="form-horizontal" method="post">
             <fieldset>
-
-                <textarea rows="10" style="width:95%" placeholder="使用逗号或者空格分割开"></textarea>
-
+                 <span class="help-block  icon-quote-left " >     格式为: 节点名称,主机名称,ip地址,主机角色,是否服务,主机描述 <br></span>
+                <p></p>
+                <textarea name="batserver" rows="12" style="width:95%" placeholder="行与行直接回车就行，行内字段使用逗号分割开"></textarea>
+                <span class="help-block  icon-quote-left " >      比如: CMN-HF-1,CMN-HF-1-3O1,221.130.162.37,FC,1,一台FC</span>
             </fieldset>
 
 
@@ -45,6 +46,32 @@
 </div>
 <script>
     $(document).ready(function(){
+        //批量添加
+        $('#serverBatchAdd').submit(function(e){
+            e.preventDefault();
+            var data = $('[name=batserver]').val();
+
+            $.ajax({
+                url:'<?php echo base_url('manage/server/bat_add')?>',
+                type:'post',
+                data:{'batserver':data},
+                dataType:'json',
+                success:function(data){
+                    if(data.success){
+                        $.messager.show({
+                            msg:data.msg,
+                            title:'成功'
+                        });
+                    }else{
+                        $('#datagrid').datagrid('rejectChanges');
+                        $.messager.show({
+                            msg:data.msg,
+                            title:'失败'
+                        });
+                    }
+                }
+            });
+        });
         var editRow = undefined ; //开启编辑行的index
         var node_role = [{'node_role':'CPIS服务节点'},{'node_role':'CPIS测试节点'},{'node_role':'CDN服务节点'},{'node_role':'CDN测试节点'}];
         $('#datagrid').datagrid({
@@ -60,7 +87,7 @@
             border:true,//是不是要边框
             idField:'server_id',//约等于数据库里面的主键
             sortName:'server_id',
-            sortOrder:'desc',
+            sortOrder:'asc',
             loadMsg:'加载中......',
             columns:[[
                 {
@@ -309,14 +336,14 @@
         $('button.btn').click(function(e){
             e.preventDefault();
             $('#datagrid').datagrid('load',{
-                node_name:$('#search_form').find('[name=node_name]').val()
+                server_name:$('#search_form').find('[name=server_name]').val()
             });
         });
     });
 </script>
 <div id="search" >
     <form id="search_form" class="datagrid-toolbar" method="POST" >
-        <input type="text" name="node_name" style="margin-top: 10px;" placeholder="根据主机名查询">
+        <input type="text" name="server_name" style="margin-top: 10px;" placeholder="根据主机名查询">
         <button class="btn">查询</button>
     </form>
 </div>

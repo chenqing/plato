@@ -209,5 +209,102 @@ class Server extends CI_Controller
         }
     }
 
+    public function bat_add()
+    {
+       $server = explode("\n",$this->input->post("batserver"));
+        $i = 0 ;
+       foreach($server as $v){
+           $i++;
+           $v = explode(',',$v);
+           if(count($v) != 6){
+               echo json_encode(
+                   array(
+                       'success' =>false,
+                       'msg' => "第".$i."行格式不正确"
+                   )
+               );
+               return;
+           }
+           if(! $this->Node_model->get_node_id($v[0])){
+               echo json_encode(
+                   array(
+                       'success' =>false,
+                       'msg' =>"第".$i."行输入节点不存在",
+                   )
+               );
+               return;
+           }
+
+           if($this->Server_model->server_exits($v[1])){
+
+               echo json_encode(
+                   array(
+                       'success' =>false,
+                       'msg' =>"第".$i."行输入主机已经存在",
+                   )
+               );
+               return;
+           }
+
+           if(count(explode('-',$v[1])) != 4){
+               echo json_encode(
+                   array(
+                       'success' =>false,
+                       'msg' =>"第".$i."行输入主机格式不正确",
+                   )
+               );
+               return;
+           }
+
+           if(!preg_match('/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/',$v[2])){
+               echo json_encode(
+                   array(
+                       'success' =>false,
+                       'msg' =>"第".$i."行ip格式不正确",
+                   )
+               );
+               return;
+           }
+           if(! $this->Server_model->get_role_id($v[3])){
+               echo json_encode(
+                   array(
+                       'success' =>false,
+                       'msg' =>"第".$i."行角色不存在",
+                   )
+               );
+               return;
+           }
+
+           if(!in_array($v[4],array('0','1'))){
+               echo json_encode(
+                   array(
+                       'success' =>false,
+                       'msg' =>"第".$i."行 是否服务格式 不正确，只能是0或者1",
+                   )
+               );
+               return;
+           }
+
+           $data['node_id'] = $this->Node_model->get_node_id($v[0]);
+           $data['server_name'] = $v[1];
+           $data['server_ip'] = $v[2];
+           $data['role_id']    = $this->Server_model->get_role_id($v[3]);
+           $data['is_active']  = $v[4];
+           $data['server_desc'] = $v[5];
+
+           if(!$this->Server_model->server_add($data)){
+                return ;
+           }
+
+       }
+
+        echo json_encode(
+            array(
+                'success' => true,
+                'msg' =>'批量添加成功',
+            )
+        );
+    }
+
 
 }

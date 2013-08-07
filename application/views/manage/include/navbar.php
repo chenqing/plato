@@ -38,6 +38,7 @@
                         <li><a  href="<?php echo base_url('manage/node') ;?>">节点管理</a></li>
                         <li><a href="<?php echo base_url('manage/server') ;?>">设备管理</a></li>
                         <li><a href="<?php echo base_url('manage/pic') ;?>">作图管理</a></li>
+                        <li><a href="<?php echo base_url('manage/relationship') ;?>">设备关系管理</a></li>
                         <li><a href="<?php echo base_url('manage/pbl') ;?>">PBL网络管理</a></li>
                         <?php if($this->permission->is_guest() ||$this->permission->is_root() ){ ?>
                         <li class="dropdown">

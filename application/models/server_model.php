@@ -69,6 +69,18 @@ class Server_model extends CI_Model
             return $v['role_name'];
         }
     }
+    public function get_role_id($role_name)
+    {
+        $this->db->where('role_name',$role_name);
+        $query = $this->db->get('server_role');
+        if($query->result_array()){
+        foreach($query->result_array() as $v){
+            return $v['role_id'];
+            }
+        }
+        return false ;
+    }
+
 
     public function role_add($data)
     {
