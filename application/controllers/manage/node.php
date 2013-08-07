@@ -19,8 +19,7 @@ class Node extends CI_Controller
         $this->load->database();
         $this->load->helper(array('url','form'));
         $this->load->library('table');
-        $this->load->model('User_model');
-        $this->load->model('Group_model');
+        $this->load->model('Node_model');
         $this->load->library('pagination');
         $this->load->library('user_agent');
         $this->load->library('breadcrumb');
@@ -37,6 +36,94 @@ class Node extends CI_Controller
         $this->load->view('manage/include/navbar',$data);
         $this->load->view('manage/node');
         $this->load->view('manage/include/footer');
+    }
+
+    public function get_node_by_json()
+    {
+        $start = $this->input->post('rows');
+        $offset = $this->input->post('page');
+        if($this->input->post('sort')){ $sort = $this->input->post('sort');}else{ $sort = 'node_id';}
+        if($this->input->post('order')){ $order = $this->input->post('order');}else{ $order = 'dsc';}
+        if($this->input->post('node_name')){ $node_name = $this->input->post('node_name');}else{ $node_name = '';}
+        echo $this->Node_model->get_node_by_json($start,$offset,$sort,$order,$node_name);
+    }
+
+    public function get_node_name_json()
+    {
+        echo  $this->Node_model->get_node_name_json();
+    }
+
+    public function get_parent_node_by_json()
+    {
+        echo $this->Node_model->get_parent_node_by_json();
+    }
+
+    public function add()
+    {
+        $data['node_name'] = $this->input->post('node_name');
+        $data['node_desc'] = $this->input->post('node_desc');
+        $data['node_role'] = $this->input->post('node_role');
+        $data['node_parent_id'] = $this->input->post('node_parent_id');
+        if($this->Node_model->node_exits($data['node_name'])){
+            echo json_encode(
+                array(
+                    'success' => false,
+                    'msg' =>'节点已经存在',
+                )
+            );
+            return;
+        }
+        if($this->Node_model->add($data)){
+
+            echo json_encode(
+                array(
+                    'success' => true,
+                    'msg' =>'添加成功',
+                )
+            );
+        }else{
+            echo json_encode(
+                array(
+                    'success' =>false,
+                    'msg' =>'添加失败',
+                )
+            );
+        }
+    }
+
+    public function edit()
+    {
+        $data['node_name'] = $this->input->post('node_name');
+        $data['node_desc'] = $this->input->post('node_desc');
+        $data['node_role'] = $this->input->post('node_role');
+        $data['node_parent_id'] = $this->input->post('node_parent_id');
+        $node_id = $this->input->post('node_id');
+        if($this->Node_model->edit($node_id,$data)){
+            echo json_encode(
+                array(
+                    'success' => true,
+                    'msg' =>'编辑成功',
+                )
+            );
+        }else{
+            echo json_encode(
+                array(
+                    'success' =>false,
+                    'msg' =>'编辑失败',
+                )
+            );
+        }
+    }
+
+    public function delete()
+    {
+        $node_ids = $this->input->post('ids');
+        $node_id = explode(',',$node_ids);
+        if($this->Node_model->delete($node_id)){
+         echo    json_encode(array('success'=>'true','msg'=>'删除节点成功'));
+        }else{
+            echo    json_encode(array('success'=>'false','msg'=>'删除节点失败'));
+        }
     }
 
 }

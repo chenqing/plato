@@ -27,6 +27,13 @@ class Group_model extends CI_Model
         }
     }
 
+    public function get_group_json()
+    {
+        $this->db->select('group_id,group_name');
+        $query = $this->db->get('group');
+        return json_encode($query->result_array());
+    }
+
     public function group_add($data)
     {
         $this->db->insert('group',$data);

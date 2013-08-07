@@ -113,8 +113,35 @@ class User extends CI_Controller
         echo json_encode($this->User_model->get_user_by_id($user_id));
         }
     }
-	
-	public function delete()
+
+    public function get_all_user_json()
+    {
+        $start = $this->input->post('rows');
+        $offset = $this->input->post('page');
+        echo $this->User_model->get_all_user_json();
+    }
+
+    public function get_all_user_jsons()
+    {
+        $start = $this->input->post('rows');
+        $offset = $this->input->post('page');
+        echo $this->User_model->get_all_user_jsons();
+    }
+
+    public function test_json()
+    {
+        $start = $this->input->post('rows');
+        $offset = $this->input->post('page');
+        if($this->input->post('sort')){ $sort = $this->input->post('sort');}else{ $sort = 'node_id';}
+        if($this->input->post('order')){ $order = $this->input->post('order');}else{ $order = 'dsc';}
+        if($this->input->post('user_name')){ $user_name = $this->input->post('user_name');}else{ $user_name = '';}
+
+        echo $this->User_model->test_json($start,$offset,$sort,$order,$user_name);
+    }
+
+
+
+    public function delete()
 	{
         $user_id = $this->uri->segment(4) ;
         if(is_numeric($user_id) && $this->input->is_ajax_request()){

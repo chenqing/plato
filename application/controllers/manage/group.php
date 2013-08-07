@@ -86,4 +86,9 @@ class Group extends CI_Controller
         else
             echo 0;
     }
+
+    public function get_group_json()
+    {
+        echo $this->Group_model->get_group_json();
+    }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * @author chenqing
  */
@@ -16,14 +16,51 @@ class User_model extends CI_Model
         return $query->result();
     }
 
+
+
     public function get_all_user()
     {
         $query = $this->db->get('user');
         return $query->result();
     }
-	
 
-	public function get_user_by_name($name)
+    public function test_json($start,$offset,$sort,$order,$user_name)
+    {
+        if(($offset -1) <0){
+            $off = 0 ;
+        }else{
+            $off = ($offset -1) * $start ;
+        }
+        if(!empty($user_name)){
+            $this->db->like('user_name',$user_name);
+        }
+        $this->db->order_by($sort,$order);
+        $query = $this->db->get('user',$start ,$off);
+        $users = array();
+        foreach($query->result_array() as $user){
+                $group_name = $this->Group_model->get_group_name($user['group_id']);
+                $user['group_name'] = $group_name;
+                array_push($users,$user);
+        }
+        $result["total"] = $this->db->count_all('user');
+        $result['rows'] = $users;
+        return json_encode($result);
+    }
+
+
+
+    public function get_all_user_json()
+    {
+        $this->db->select('user_id,user_name');
+        $query = $this->db->get('user');
+       // $result["total"] = $this->db->count_all('user');
+        //$result['rows'] = $query->result_array();
+        return json_encode($query->result_array());
+    }
+
+
+
+    public function get_user_by_name($name)
 	{
 		$this->db->where('user_name',$name);
 		return $this->db->get('user');

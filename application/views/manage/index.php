@@ -63,7 +63,7 @@
 
             <div class="tab-content">
                 <div class="tab-pane active" id="home">
-                    <iframe src="#" width="100%" align="center" height="420px" frameborder="0" scrolling="auto">
+                    <iframe src="http://www.chenqing.org" width="100%" align="center" height="420px" frameborder="0" scrolling="auto">
 
                     </iframe>
 
@@ -84,3 +84,10 @@
         </div>
     </div>
 </div>
+<script>
+    $.messager.show({
+        title:'欢迎您',
+        msg:'欢迎过来转转',
+        showType:'show'
+    });
+</script>

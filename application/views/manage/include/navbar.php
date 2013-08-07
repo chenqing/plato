@@ -38,7 +38,8 @@
                         <li><a  href="<?php echo base_url('manage/node') ;?>">节点管理</a></li>
                         <li><a href="<?php echo base_url('manage/server') ;?>">设备管理</a></li>
                         <li><a href="<?php echo base_url('manage/pic') ;?>">作图管理</a></li>
-                        <?php if($this->permission->is_operation() ||$this->permission->is_root() ){ ?>
+                        <li><a href="<?php echo base_url('manage/pbl') ;?>">PBL网络管理</a></li>
+                        <?php if($this->permission->is_guest() ||$this->permission->is_root() ){ ?>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">用户管理<b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -48,7 +49,7 @@
                                 <li class="nav-header">基于linux用户设计</li>
                             </ul>
                         </li>
-                        <?php }?>
+                       <?php }?>
                     </ul>
                 </div>
             </div>
