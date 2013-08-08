@@ -3,7 +3,7 @@
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#lA"><i class="icon-search  icon-3x"></i>  万能搜索</a></li>
 
-        <li class=""><a data-toggle="tab" href="#lC"><i class="icon-github  icon-3x"></i>  git教程</a></li>
+        <li class=""><a data-toggle="tab" href="#lC"><i class=" icon-bar-chart  icon-3x"></i>图表统计</a></li>
         <li class=""><a data-toggle="tab" href="#lB"><i class="   icon-comments  icon-3x"></i>  有事留言</a></li>
         <li class=""><a data-toggle="tab" href="#lD"><i class=" icon-h-sign  icon-3x"></i>  批量运行</a></li>
         <li class=""><a data-toggle="tab" href="#lE"><i class="icon-spinner icon-spin icon-3x"></i>  再加点啥</a></li>
@@ -46,8 +46,131 @@
 
         </div>
         <div id="lC" class="tab-pane">
-            <iframe src="http://www.bootcss.com/p/git-guide/" width="100%" align="center" height="420px" frameborder="0" scrolling="auto"></iframe>
 
+            <script src="<?php echo base_url('assets/js/highcharts.js');?>"></script>
+            <script src="<?php echo base_url('assets/js/exporting.js');?>"></script>
+
+            <div id="container" style="min-width: 300px; height: 200px; margin: 10px ;float: left;"></div>
+            <div id="container1" style="min-width: 400px; height: 200px; margin: 10px;float: left;"></div>
+            <div id="container2" style="min-width: 300px; height: 200px; margin: 10px ;float: left;"></div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#container').highcharts({
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false
+                        },
+                        title: {
+                            text: '服务器数量及占比'
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: true,
+                                    color: '#000000',
+                                    connectorColor: '#000000',
+                                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                                }
+                            }
+                        },
+                        series: [{
+                            type: 'pie',
+                            name: '服务器数量占比',
+                            data: [
+                                ['FC',   800],
+                                ['FSCS',       380],
+                                {
+                                    name: 'FDNS',
+                                    y: 12.8,
+                                    sliced: true,
+                                    selected: true
+                                },
+                                ['A10',    10],
+                                ['F5',     8],
+                                ['交换机',  100 ]
+                            ]
+                        }]
+                    });
+                    $('#container1').highcharts({
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false
+                        },
+                        title: {
+                            text: '节点分布及占比'
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: true,
+                                    color: '#000000',
+                                    connectorColor: '#000000',
+                                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                                }
+                            }
+                        },
+                        series: [{
+                            type: 'pie',
+                            name: '节点分布及占比',
+                            data: [
+                                ['移动节点',   15],
+                                ['铁通节点',       1],
+                                ['广电节点',6],
+                                ['联通节点',    1],
+                                ['电信节点',     1],
+                                ['海外节点',  4 ]
+                            ]
+                        }]
+                    });
+                    $('#container2').highcharts({
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false
+                        },
+                        title: {
+                            text: '流量及占比'
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: true,
+                                    color: '#000000',
+                                    connectorColor: '#000000',
+                                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                                }
+                            }
+                        },
+                        series: [{
+                            type: 'pie',
+                            name: '流量及占比',
+                            data: [
+                                ['出流量',   800],
+                                ['入流量',       380]
+                            ]
+                        }]
+                    });
+                });
+
+
+            </script>
         </div>
         <div id="lD" class="tab-pane">
             <iframe src="http://112.25.34.10:60000/hello.html" width="100%" align="center" height="420px" frameborder="0" scrolling="auto"></iframe>

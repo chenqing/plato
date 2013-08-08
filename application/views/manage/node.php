@@ -51,7 +51,7 @@
                 var node_role = [{'node_role':'CPIS服务节点'},{'node_role':'CPIS测试节点'},{'node_role':'CDN服务节点'},{'node_role':'CDN测试节点'}];
                 $('#datagrid').datagrid({
                     url : '<?php echo base_url('manage/node/get_node_by_json') ?>',
-                    title: '节点管理',
+                    title: 'Server管理',
                     iconCls: 'icon-edit',
                     pagination:true,
                     pageSize: 10,
