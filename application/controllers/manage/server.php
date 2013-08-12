@@ -74,6 +74,12 @@ class Server extends CI_Controller
         echo $this->Server_model->get_server_by_json($start,$offset,$sort,$order,$server_name);
     }
 
+    public function get_server_by_name()
+    {
+        $server_name = $this->input->post('server_name');
+        echo $this->Server_model->get_server_by_name($server_name);
+    }
+
     public function role_add()
     {
         $data['role_name'] = $this->input->post('role_name');

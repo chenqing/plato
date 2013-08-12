@@ -14,7 +14,10 @@ class breadcrumb
         'node'  => '节点管理',
         'server' => '服务器管理',
         'other'  => '其它',
-        'index'  => '首页'
+        'index'  => '首页',
+        'relationship' =>'设备关系管理',
+        'pbl' => 'PBL网络管理',
+        'pic' => '流量图管理'
     );
     protected $CI;
 

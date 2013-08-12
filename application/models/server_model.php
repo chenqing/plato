@@ -34,6 +34,28 @@ class Server_model extends CI_Model
         return json_encode($result['rows']);
     }
 
+    public function get_all_servers()
+    {
+        $this->db->select('server_id,server_name');
+        $query = $this->db->get('server');
+        return $query->result();
+    }
+
+    public function get_server_by_name($server_name)
+    {
+        $this->db->select('server_id,server_name');
+        if(!empty($server_name)){
+            $this->db->like('server_name',$server_name);
+        }
+        $query = $this->db->get('server');
+        $v = "";
+        foreach($query->result() as $s){
+            $v.="<option value='".$s->server_id."'>".$s->server_name.'</option>';
+        }
+
+        return $v;
+    }
+
 
     public function get_role_by_json($start,$offset,$sort,$order,$role_name)
     {
