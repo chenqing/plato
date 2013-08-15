@@ -3,7 +3,8 @@
         <ul class="nav  nav-stacked nav-list ">
             <li class="nav-header"><span class=" icon-edit icon-2x"></span>设备关系管理</li>
             <li><a href="<?php echo base_url('manage/relationship/add')?>"><span class="icon-plus"></span>设备组添加</a></li>
-            <li><a href="<?php echo base_url('manage/relationship/')?>"><span class="icon-user"></span>关系管理</a></li>
+            <li><a href="<?php echo base_url('manage/relationship/relationship')?>"><span class="icon-user"></span>关系组管理</a></li>
+            <li><a href="<?php echo base_url('manage/relationship/relationship_list')?>"><span class="icon-user"></span>设备组修改</a></li>
             <li>&nbsp</li>
         </ul>
     </div>

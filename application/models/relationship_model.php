@@ -6,6 +6,7 @@ class Relationship_model extends CI_Model
     {
         parent::__construct();
         $this->load->model('Node_model');
+        $this->load->model('Server_model');
     }
 
     public function get_relationship_by_json($start,$offset,$sort,$order,$group_name)
@@ -68,6 +69,39 @@ class Relationship_model extends CI_Model
         return $relationship;
     }
 
+    public function all_relationship_real($num,$offset)
+    {
+        $query = $this->db->get('relationship_real',$num,$offset);
+
+        return $query->result();
+    }
+
+    public function get_group_by_id($group_id)
+    {
+        $this->db->where('group_id',$group_id);
+        $this->db->select('group_name,group_id');
+        $query = $this->db->get('relationship');
+        foreach($query->result() as $v){
+            return $v->group_name;
+        }
+    }
+
+    public function get_select_server($group_id)
+    {
+        $this->db->select('server_ids');
+        $this->db->where('real_id',$group_id);
+        $query = $this->db->get('relationship_real');
+        $select = '';
+        foreach($query->result() as $v){
+            foreach(explode(',',$v->server_ids) as $s){
+                 $select .= '<option value="'.$s .'">'.$this->Server_model->get_server_by_id($s) .'</option>';
+            }
+
+        }
+
+        return $select;
+    }
+
 
     public function group_edit($group_id,$data)
     {
@@ -97,6 +131,60 @@ class Relationship_model extends CI_Model
 
         return false ;
     }
+
+    public function rec_add($data)
+    {
+        $this->db->insert('relationship_real',$data);
+        if($this->db->affected_rows() >0){
+            return true;
+        }
+
+        return false;
+    }
+
+    public function rec_edit($real_id,$data)
+    {
+
+        $this->db->where('real_id',$real_id);
+        $this->db->update('relationship_real',$data);
+
+        if($this->db->affected_rows() == 1){
+            return true;
+        }
+
+        return false ;
+    }
+
+    public function get_tuopu_server($real_id)
+    {
+        $servers = array();
+        $fscs = array();
+        $fc = array();
+        $this->db->select('server_ids');
+        $this->db->where('real_id',$real_id);
+        $query = $this->db->get('relationship_real');
+        $tmp1 = array();
+        $tmp2 = array();
+        foreach($query->result() as $s )
+        {
+            foreach(explode(',',$s->server_ids) as $v){
+
+                    if($this->Server_model->is_fscs($v)){
+
+                        $tmp1['server_name'] = $this->Server_model->get_server_by_id($v);
+                        array_push($fscs,$tmp1);
+                    }else if($this->Server_model->is_fc($v)){
+                        $tmp2['server_name'] = $this->Server_model->get_server_by_id($v);
+                        array_push($fc,$tmp2);
+                }
+            }
+        }
+
+        $servers['fscs'] =$fscs;
+        $servers['fc'] = $fc ;
+        return $servers;
+    }
+
 
 
 

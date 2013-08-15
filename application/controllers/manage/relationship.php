@@ -54,7 +54,23 @@ class Relationship extends CI_Controller
         $this->load->view('manage/relationship');
         $this->load->view('manage/include/footer');
     }
+    public function relationship_list()
+    {
+        $config['base_url'] = site_url('manage/relationship/relationship_list');
+        $config['total_rows'] = $this->db->count_all('relationship_real');
+        $config['per_page'] = 5;
+        $config['uri_segment'] = 4;
 
+        $this->pagination->initialize($config);
+        $data['links'] = $this->pagination->create_links();
+        $data['relationship_real'] = $this->Relationship_model->all_relationship_real($config['per_page'],$this->uri->segment(4));
+        $data['breadcrumb'] = $this->breadcrumb->get_name();
+        $data['breadcrumb_link'] = $this->breadcrumb->get_link();
+        $this->load->view('manage/include/header',$data);
+        $this->load->view('manage/include/navbar',$data);
+        $this->load->view('manage/relationship_list_1',$data);
+        $this->load->view('manage/include/footer');
+    }
     public function get_relationship_by_json()
     {
         $start = $this->input->post('rows');
@@ -63,6 +79,13 @@ class Relationship extends CI_Controller
         if($this->input->post('order')){ $order = $this->input->post('order');}else{ $order = 'dsc';}
         if($this->input->post('group_name')){ $node_name = $this->input->post('group_name');}else{ $group_name = '';}
         echo $this->Relationship_model->get_relationship_by_json($start,$offset,$sort,$order,$group_name);
+    }
+
+    public function get_select_server()
+    {
+        $group_id = $this->uri->segment(4);
+        echo $this->Relationship_model->get_select_server($group_id);
+
     }
 
     public function group_add()
@@ -146,6 +169,71 @@ class Relationship extends CI_Controller
                 )
             );
         }
+    }
+
+    public function rec_add()
+    {
+        $server_ids = $this->input->post('server_ids');
+        if(is_array($server_ids)){
+            $data['server_ids'] = implode(',',$server_ids);
+        }else{
+            $data['server_ids'] = $server_ids;
+        }
+        $data['group_id'] = $this->input->post('group_id');
+
+        if($this->Relationship_model->rec_add($data)){
+
+            echo json_encode(
+                array(
+                    'success' => true,
+                    'msg' =>'添加成功',
+                )
+            );
+        }else{
+            echo json_encode(
+                array(
+                    'success' =>false,
+                    'msg' =>'添加失败',
+                )
+            );
+        }
+    }
+
+
+
+    public function rec_edit()
+    {
+        $server_ids = $this->input->post('server_ids');
+        if(is_array($server_ids)){
+            $data['server_ids'] = implode(',',$server_ids);
+        }else{
+            $data['server_ids'] = $server_ids;
+        }
+        $real_id = $this->input->post('real_id');
+
+        if($this->Relationship_model->rec_edit($real_id,$data)){
+
+            echo json_encode(
+                array(
+                    'success' => true,
+                    'msg' =>'添加成功',
+                )
+            );
+        }else{
+            echo json_encode(
+                array(
+                    'success' =>false,
+                    'msg' =>'添加失败',
+                )
+            );
+        }
+    }
+
+    public function get_tuopu_server()
+    {
+        $real_id = $this->uri->segment(4);
+
+        echo json_encode($this->Relationship_model->get_tuopu_server($real_id));
     }
 
 }

@@ -3,7 +3,8 @@
         <ul class="nav  nav-stacked nav-list ">
             <li class="nav-header"><span class=" icon-edit icon-2x"></span>设备关系管理</li>
             <li><a href="<?php echo base_url('manage/relationship/add')?>"><span class="icon-plus"></span>设备组添加</a></li>
-            <li><a href="<?php echo base_url('manage/relationship/')?>"><span class="icon-user"></span>关系管理</a></li>
+            <li><a href="<?php echo base_url('manage/relationship/relationship')?>"><span class="icon-user"></span>关系组管理</a></li>
+            <li><a href="<?php echo base_url('manage/relationship/relationship_list')?>"><span class="icon-user"></span>设备组修改</a></li>
             <li>&nbsp</li>
         </ul>
     </div>
@@ -48,12 +49,12 @@
     </form>
 
 
-    <form id="sel_form" action="" method="post" >
+    <form id="sel_form"   method="post" >
 
         <div class="control-group">
             <label class="control-label" for="group">首先要选择一个关系组</label>
             <div class="controls">
-                <input id="cc1" class="easyui-combobox" data-options="
+                <input id="cc1"  name="node_parent_name" class="easyui-combobox" data-options="
              valueField: 'node_id',
              textField: 'node_name',
              'panelHeight':'auto',
@@ -62,7 +63,7 @@
             var url = '<?php echo base_url('manage/relationship/get_group_by_json')?>' +'/' + rec.node_id;
             $('#cc2').combobox('reload', url);
         }" />
-                <input id="cc2" class="easyui-combobox" data-options="valueField:'group_id',textField:'group_name','panelHeight':'auto'" />
+                <input id="cc2" name="node_id"" class="easyui-combobox" data-options="valueField:'group_id',textField:'group_name','panelHeight':'auto'" />
             </div>
         </div>
 
@@ -73,7 +74,7 @@
                 <?php endforeach ?>
             </select>
         </div>
-        <div class="text-center"><input type="button"  class="btn-primary text-center" value="提 交" /></div>
+        <input type="submit"  class="btn-large btn-danger" value="提 交"  style="margin-left: 150px;"/>
     </form>
     </div>
     <script type="text/javascript">
@@ -103,6 +104,40 @@
                 $(this).html("");
             });
         });
+
+        $(
+            $('#sel_form').submit(function(e){
+            e.preventDefault();
+            var server_ids  = $('#liOptionms2side__dx').val();
+            var group_id = $("input[name='node_id']").val();
+            if(! group_id ){
+                alert('你要选择一个设备组，亲！');
+                return false;
+            }
+            if(! server_ids ){
+                alert('你得往里面加点设备，亲！');
+                return false;
+            }
+            var url = '<?php echo base_url('manage/relationship/rec_add')?>';
+            $.post(
+                url,
+                {server_ids:server_ids,group_id:group_id},
+                function(data){
+                if(data){
+                    $.messager.show({
+                        msg:'添加成功',
+                        title:'成功'
+                    });
+                }else{
+                    $.messager.show({
+                        msg:'添加失败',
+                        title:'失败'
+                    });
+                }
+            }
+            );
+        })
+        );
     </script>
 </div>
 </div>

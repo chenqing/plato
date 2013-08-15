@@ -31,7 +31,7 @@ class Server_model extends CI_Model
 
         $result["total"] = $this->db->count_all('server');
         $result['rows'] = $server;
-        return json_encode($result['rows']);
+        return json_encode($result);
     }
 
     public function get_all_servers()
@@ -56,6 +56,17 @@ class Server_model extends CI_Model
         return $v;
     }
 
+    public function get_server_by_id($server_id)
+    {
+        $this->db->select('server_id,server_name');
+        $this->db->where('server_id',$server_id);
+        $query = $this->db->get('server');
+        foreach($query->result() as $v){
+
+            return $v->server_name;
+        }
+
+    }
 
     public function get_role_by_json($start,$offset,$sort,$order,$role_name)
     {
@@ -91,6 +102,8 @@ class Server_model extends CI_Model
             return $v['role_name'];
         }
     }
+
+
     public function get_role_id($role_name)
     {
         $this->db->where('role_name',$role_name);
@@ -102,6 +115,21 @@ class Server_model extends CI_Model
         }
         return false ;
     }
+
+    public function get_role_id_by_server($server_id)
+    {
+        $this->db->where('server_id',$server_id);
+        $this->db->select('role_id');
+        $query = $this->db->get('server');
+        if($query->result_array()){
+            foreach($query->result_array() as $v){
+                return $v['role_id'];
+            }
+        }
+        return false ;
+    }
+
+
 
 
     public function role_add($data)
@@ -188,6 +216,26 @@ class Server_model extends CI_Model
         }
 
         return false ;
+    }
+
+    public function is_fscs($id){
+        $role_id = $this->get_role_id_by_server($id);
+        if($this->get_role_name($role_id) == "FSCS")
+            return true;
+
+        return false;
+
+    }
+
+    public function is_fc($id){
+        $role_id = $this->get_role_id_by_server($id);
+        if($this->get_role_name($role_id) == "FC"){
+            return true;
+        }else{
+
+        return false;
+        }
+
     }
 
 

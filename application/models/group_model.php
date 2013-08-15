@@ -56,11 +56,12 @@ class Group_model extends CI_Model
 
     public function get_group_name($id)
     {
+
+        $this->db->select('group_name,group_desc');
         $this->db->where('group_id',$id);
         $query = $this->db->get('group');
 
-        foreach($query->result() as $group )
-        return $group->group_name;
+        return $query->result_array();
 
     }
 

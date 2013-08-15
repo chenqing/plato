@@ -118,7 +118,7 @@
 							("<p class='AddOne btn' title='Add Selected'><i class=' icon-angle-right '> </i></p>" +
 							"<p class='AddAll btn' title='Add All'><i class=' icon-double-angle-right'> </i></p>" +
 							"<p class='RemoveOne btn' title='Remove Selected'><i class=' icon-angle-left '> </i></p>" +
-							"<p class='RemoveAll btn' title='Remove All'><i class=' icon-double-angle-right '> </i></p>")
+							"<p class='RemoveAll btn' title='Remove All'><i class=' icon-double-angle-left '> </i></p>")
 							:
 							("<p class='AddOne' title='Add Selected'>&lsaquo;</p>" +
 							"<p class='AddAll' title='Add All'>&laquo;</p>" +
