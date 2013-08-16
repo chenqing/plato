@@ -1,0 +1,75 @@
+#!/usr/bin/python
+import json
+import urllib2
+import sys
+from optparse import OptionParser
+useage = {
+	'node' : '''all : will print all child node without parent node	
+parent: will print the parent node without child node                             
+nodename: a node startswith this word \n
+'''
+}
+
+def list_node( type = 'all'):
+	'''
+		useage --node all      : will print all node without parent node like CMN-HF ,this the default value
+		       --node parent   : will print the parent node like CMN-NJ without CMN-NJ-[1-9a-zA-Z]
+		       --node nodename : the nodename is a word like CMN-HF,CMN-NJ-Q,or a node startswith this word
+	'''
+	url = "http://localhost/manage/node/get_node_name_api/"
+	data = urllib2.urlopen(url).read()
+	nodes = json.loads(data)
+	for node in nodes:
+		if type == 'all':
+			if len(node.split('-')) >2 :
+				print node
+		if type == 'parent':
+			if len(node.split('-'))  == 2 :
+				print node
+		else:
+			if len(node.split('-')) >2 and node.startswith(type.upper()) :
+				print node
+		
+def list_group(group_name = '' ):
+	if group_name.lower() == 'all':
+		url = 'http://localhost/manage/relationship/get_group_api/'
+	else:
+		url = 'http://localhost/manage/relationship/get_group_api/' + group_name.upper()	
+	data = urllib2.urlopen(url).read()
+	group = json.loads(data)
+	for g in group:
+		print g['group_name'] , g['group_desc'].encode('utf-8')
+	return 
+def list_relationship(group_name = '',list = 'all'):
+        if group_name.lower() == 'all':
+                url = 'http://localhost/manage/relationship/get_relationship_api/'
+        else:
+                url = 'http://localhost/manage/relationship/get_relationship_api/' + group_name.upper()	
+	server = json.loads(urllib2.urlopen(url).read())
+	
+	for i in server:
+    		if i == 'fscs':
+        		print 'FSCS:'
+        		for s in range(len(server[i])):
+            			print server[i][s]['server_name']
+    		if i == 'fc':
+        		print 'FC:'
+        		for r in  range(len(server[i])):
+            			print server[i][r]['server_name']
+if __name__ == "__main__":
+    parser =OptionParser(usage="%prog [-n [all|nodename]] " ,version = "1.0")
+    parser.add_option('-n','--node',dest="node",type="string",help=useage['node'])
+    parser.add_option('-g','--group',dest="group", help="print ip information of access log")
+    parser.add_option('-r','--relationship',dest="relationship", help="print ip information of access log")
+    parser.add_option('-f','--fscs',dest="fscs",action = "store_true",help="print url information of access log")
+    (options,args) = parser.parse_args()
+ 
+    if len(sys.argv) < 2:
+        parser.print_help()
+    if options.group :
+        list_group( options.group)
+    if options.node :
+    	list_node( options.node)
+    if options.relationship :
+    	list_relationship( options.relationship)
+
