@@ -53,6 +53,11 @@ class Node extends CI_Controller
         echo  $this->Node_model->get_node_name_json();
     }
 
+    public function  get_node_name_api()
+    {
+        echo $this->Node_model->get_node_name_api();
+    }
+
     public function get_parent_node_by_json()
     {
         echo $this->Node_model->get_parent_node_by_json();

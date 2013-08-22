@@ -10,13 +10,14 @@
         </ul>
     </div>
 
-    <div class="span8">
-        <table class="table table-striped table-hover table-bordered">
+    <div class="span9">
+        <table class="table table-striped table-hover table-bordered" style="width: 100%;">
             <thead>
 
             <tr>
                 <th>关系id</th>
-                <th>关系组称</th>
+                <th>关系组名称</th>
+                <th>关系组描述</th>
                 <th>成员</th>
                 <th>操作</th>
             </tr>
@@ -26,10 +27,11 @@
                 <tr>
                     <td><?php echo $item->real_id; ?></td>
                     <td><?php echo $this->Relationship_model->get_group_by_id($item->group_id); ?></td>
+                    <td><?php echo $this->Relationship_model->get_group_desc_by_id($item->group_id); ?></td>
                     <td><?php $i = 0; foreach(explode(',',$item->server_ids) as $id ){
                             echo $this->Server_model->get_server_by_id($id)."  ";
                             $i++ ;
-                            if($i >3 ){
+                            if($i >1 ){
                                 echo ".....";
                                 break;
                             }
@@ -84,7 +86,7 @@
 
     </div>
 
-    </script>
+
     <div id="groupShow" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

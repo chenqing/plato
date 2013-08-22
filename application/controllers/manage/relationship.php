@@ -236,4 +236,24 @@ class Relationship extends CI_Controller
         echo json_encode($this->Relationship_model->get_tuopu_server($real_id));
     }
 
+    public function rec_check()
+    {
+        $group_id = $this->uri->segment(4);
+       if($this->Relationship_model->rec_check($group_id)){
+           echo 1;
+       }
+    }
+
+    public function get_group_api()
+    {
+        $group_name = $this->uri->segment(4);
+        echo json_encode($this->Relationship_model->get_group_api($group_name));
+    }
+
+    public function get_relationship_api()
+    {
+        $group_name = $this->uri->segment(4);
+
+        echo json_encode($this->Relationship_model->get_relationship_api($group_name));
+    }
 }

@@ -185,7 +185,73 @@ class Relationship_model extends CI_Model
         return $servers;
     }
 
+    public function rec_check($group_id)
+    {
+        $this->db->where('group_id',$group_id);
+        $query = $this->db->get('relationship_real');
+        if($this->db->affected_rows() >= 1){
+            return true;
+        }
 
+        return false ;
+    }
+
+    public function get_group_desc_by_id($group_id)
+    {
+        $this->db->select('group_desc');
+        $this->db->where('group_id',$group_id);
+        $query = $this->db->get('relationship');
+        foreach ($query->result() as $v) {
+            return $v->group_desc;
+        }
+
+    }
+
+    public function get_group_api($group_name)
+    {
+        $this->db->select('group_name,group_desc');
+        $this->db->like('group_name',$group_name);
+        $query = $this->db->get('relationship');
+
+        return $query->result_array();
+    }
+
+    public function get_relationship_api($group_name)
+    {
+        $servers = array();
+        $fscs = array();
+        $fc = array();
+        $group_id = '';
+        $this->db->select('group_id');
+        $this->db->where('group_name',$group_name);
+        $q  = $this->db->get('relationship');
+        foreach($q->result() as $v){
+            $group_id = $v->group_id;
+        }
+        $this->db->select('server_ids');
+        $this->db->where('group_id',$group_id);
+        $query = $this->db->get('relationship_real');
+        $tmp1 = array();
+        $tmp2 = array();
+        foreach($query->result() as $s )
+        {
+            foreach(explode(',',$s->server_ids) as $v){
+
+                if($this->Server_model->is_fscs($v)){
+
+                    $tmp1['server_name'] = $this->Server_model->get_server_by_id($v);
+                    array_push($fscs,$tmp1);
+                }else if($this->Server_model->is_fc($v)){
+                    $tmp2['server_name'] = $this->Server_model->get_server_by_id($v);
+                    array_push($fc,$tmp2);
+                }
+            }
+        }
+
+        $servers['fscs'] =$fscs;
+        $servers['fc'] = $fc ;
+        return $servers;
+    }
 
 
 }

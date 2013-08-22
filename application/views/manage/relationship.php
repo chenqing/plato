@@ -110,6 +110,7 @@
             e.preventDefault();
             var server_ids  = $('#liOptionms2side__dx').val();
             var group_id = $("input[name='node_id']").val();
+
             if(! group_id ){
                 alert('你要选择一个设备组，亲！');
                 return false;
@@ -118,24 +119,17 @@
                 alert('你得往里面加点设备，亲！');
                 return false;
             }
-            var url = '<?php echo base_url('manage/relationship/rec_add')?>';
-            $.post(
-                url,
-                {server_ids:server_ids,group_id:group_id},
-                function(data){
-                if(data){
-                    $.messager.show({
-                        msg:'添加成功',
-                        title:'成功'
-                    });
-                }else{
-                    $.messager.show({
-                        msg:'添加失败',
-                        title:'失败'
-                    });
-                }
-            }
-            );
+                var check_url = '<?php echo base_url('manage/relationship/rec_check')?>'+'/'+group_id;
+                $.get(
+                    check_url,
+                    function(data){
+                        if(data){
+                            $.messager.alert('出错啦','所选的组已经存在','error');
+                            return false;
+                        }
+                    }
+                );
+
         })
         );
     </script>

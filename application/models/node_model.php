@@ -49,6 +49,16 @@ class Node_model extends CI_Model
         }
     }
 
+    public function get_node_name_api()
+    {
+        $query = $this->db->get('node');
+        $node =array();
+        foreach($query->result() as $v){
+            array_push($node,$v->node_name);
+        }
+        return json_encode($node);
+    }
+
     public function get_node_id($node_name)
     {
         $this->db->where('node_name',$node_name);
