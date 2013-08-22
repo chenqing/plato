@@ -59,9 +59,9 @@ def list_relationship(group_name = '',list = 'all'):
 if __name__ == "__main__":
     parser =OptionParser(usage="%prog [-n [all|nodename]] " ,version = "1.0")
     parser.add_option('-n','--node',dest="node",type="string",help=useage['node'])
-    parser.add_option('-g','--group',dest="group", help="print ip information of access log")
-    parser.add_option('-r','--relationship',dest="relationship", help="print ip information of access log")
-    parser.add_option('-f','--fscs',dest="fscs",action = "store_true",help="print url information of access log")
+    parser.add_option('-g','--group',dest="group", help="devices group info")
+    parser.add_option('-r','--relationship',dest="relationship", help="print relationship info")
+    parser.add_option('-f','--fscs',dest="fscs",action = "store_true",help="print server that role is fscs")
     (options,args) = parser.parse_args()
  
     if len(sys.argv) < 2:
