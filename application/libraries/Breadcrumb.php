@@ -17,7 +17,8 @@ class breadcrumb
         'index'  => '首页',
         'relationship' =>'设备关系管理',
         'pbl' => 'PBL网络管理',
-        'pic' => '流量图管理'
+        'pic' => '流量图管理',
+        'cabinet' => '机柜管理'
     );
     protected $CI;
 

@@ -246,6 +246,8 @@ class Relationship extends CI_Controller
 
     public function get_group_api()
     {
+        header('WWW-Authenticate: Basic realm="Test"');
+        header('HTTP/1.1 401 Unauthorized');
         $group_name = $this->uri->segment(4);
         echo json_encode($this->Relationship_model->get_group_api($group_name));
     }

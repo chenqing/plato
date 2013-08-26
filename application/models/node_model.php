@@ -93,6 +93,14 @@ class Node_model extends CI_Model
         return json_encode($arr);
     }
 
+    public function get_child_node()
+    {
+        $this->db->select('node_id,node_name');
+        $this->db->where('node_parent_id !=' , 0);
+        $query = $this->db->get('node');
+        return $query->result();
+    }
+
     public function add($data)
     {
         $this->db->insert('node',$data);

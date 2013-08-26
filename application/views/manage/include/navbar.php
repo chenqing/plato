@@ -36,6 +36,7 @@
                         <li class="active"><a href="<?php echo base_url('manage/') ;?>">首页</a></li>
 
                         <li><a  href="<?php echo base_url('manage/node') ;?>">节点管理</a></li>
+                        <li><a  href="<?php echo base_url('manage/cabinet') ;?>">机柜管理</a></li>
                         <li><a href="<?php echo base_url('manage/server') ;?>">设备管理</a></li>
                         <li><a href="<?php echo base_url('manage/relationship') ;?>">设备关系管理</a></li>
                         <li><a href="<?php echo base_url('manage/pic') ;?>">作图管理</a></li>
