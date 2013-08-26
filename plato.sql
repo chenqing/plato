@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.1.44)
 # Database: blog
-# Generation Time: 2013-08-12 07:36:52 +0000
+# Generation Time: 2013-08-26 16:25:10 +0000
 # ************************************************************
 
 
@@ -18,6 +18,35 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table cabinet
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `cabinet`;
+
+CREATE TABLE `cabinet` (
+  `cab_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `cab_name` varchar(100) NOT NULL DEFAULT '',
+  `node_id` int(11) DEFAULT NULL,
+  `cab_location` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`cab_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+LOCK TABLES `cabinet` WRITE;
+/*!40000 ALTER TABLE `cabinet` DISABLE KEYS */;
+
+INSERT INTO `cabinet` (`cab_id`, `cab_name`, `node_id`, `cab_location`)
+VALUES
+	(1,'测试',17,'四楼机房进门左拐第二排第四个\n                            '),
+	(2,'aaaa',17,'四楼机房进门往西\n                            '),
+	(3,'再来一个',23,'不知道在哪里                            '),
+	(4,'hello',19,'四楼机房进门左拐第二排第四个\n                            '),
+	(5,'aaaa的',23,'四楼机房进门左拐第二排第四个\n                            '),
+	(6,'地对地导弹',17,'四楼机房进门左拐第二排第四个\n                            ');
+
+/*!40000 ALTER TABLE `cabinet` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table group
@@ -103,9 +132,34 @@ LOCK TABLES `relationship` WRITE;
 INSERT INTO `relationship` (`group_id`, `node_id`, `group_name`, `group_desc`)
 VALUES
 	(1,1,'CMN-HF-WEB-PBL','web组，出口是PBL'),
-	(2,1,'CMN-HF-WEB-TOP','web组，出口是PBL，并且是top20重点保障组');
+	(2,1,'CMN-HF-WEB-TOP','web组，出口是PBL，并且是top20重点保障组'),
+	(4,18,'CMN-NJ-WEB-Q','江苏移动Q节点，WEB服务');
 
 /*!40000 ALTER TABLE `relationship` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table relationship_real
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `relationship_real`;
+
+CREATE TABLE `relationship_real` (
+  `real_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL,
+  `server_ids` varchar(200) NOT NULL DEFAULT '',
+  PRIMARY KEY (`real_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+LOCK TABLES `relationship_real` WRITE;
+/*!40000 ALTER TABLE `relationship_real` DISABLE KEYS */;
+
+INSERT INTO `relationship_real` (`real_id`, `group_id`, `server_ids`)
+VALUES
+	(1,2,'12,11,10,5,4,3,2,1'),
+	(2,1,'10,9,8,7,6,5,4,2');
+
+/*!40000 ALTER TABLE `relationship_real` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -138,7 +192,10 @@ VALUES
 	(6,16,'CMN-HF-1-3O6','221.130.162.42',5,1,'PBL组FC'),
 	(7,16,'CMN-HF-1-3O7','221.130.162.43',5,1,'PBL组FC'),
 	(8,16,'CMN-HF-1-3O8','221.130.162.44',5,1,'PBL组FC'),
-	(9,16,'CMN-HF-1-3O9','221.130.162.45',5,1,'PBL组FC');
+	(9,16,'CMN-HF-1-3O9','221.130.162.45',5,1,'PBL组FC'),
+	(10,16,'CMN-HF-1-3Z1','221.130.162.34',6,0,'PBL组FSCS'),
+	(11,16,'CMN-HF-1-3Z2','221.130.162.35',6,0,'PBL组FSCS'),
+	(12,16,'CMN-HF-1-3Z3','221.130.162.35',6,0,'PBL组FSCS');
 
 /*!40000 ALTER TABLE `server` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -197,7 +254,7 @@ LOCK TABLES `user` WRITE;
 
 INSERT INTO `user` (`user_id`, `group_id`, `user_name`, `user_password`, `user_privilege`, `last_login`, `is_active`)
 VALUES
-	(3,2,'qihen','5a558dbfe96e63faaac3e3fab8af6703abe9',40,'2013-02-28 13:56:40',1),
+	(3,2,'qing.chen','8d925a558dbfe96e63faaac3e3fab8af6703abe9',40,'2013-02-28 13:56:40',1),
 	(25,3,'squid','40bd001563085fc35165329ea1ff5c5ecbdbbeef',62,'2013-07-23  05:50',1),
 	(28,1,'yanjun.liu','4b832c546fde5d2a73a16fe4ec7ed09da78cd2b0',124,'2013-07-27  03:23',1),
 	(29,1,'cpis','4b832c546fde5d2a73a16fe4ec7ed09da78cd2b0',62,'2013-07-28  11:09',1),
