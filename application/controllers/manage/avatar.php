@@ -6,7 +6,7 @@
  * @date  2013-07-08
  */
 
-class Cabinet extends CI_Controller
+class Avatar extends CI_Controller
 {
 
     /*
@@ -49,7 +49,7 @@ class Cabinet extends CI_Controller
         //var_dump($this->breadcrumb->get_link());
         $this->load->view('manage/include/header',$data);
         $this->load->view('manage/include/navbar',$data);
-        $this->load->view('manage/cabinet',$data);
+        $this->load->view('manage/avatar',$data);
         $this->load->view('manage/include/footer');
     }
 
@@ -77,12 +77,12 @@ class Cabinet extends CI_Controller
                     }
 
                 }else{
-                     array_push($rows,$this->Cabinet_model->get_cabinet_by_node_id($n['node_id']));
+                    array_push($rows,$this->Cabinet_model->get_cabinet_by_node_id($n['node_id']));
                 }
             }
         }
 
-       $result = array();
+        $result = array();
         foreach($rows as $r)
         {
             $r['node_name'] = $this->Node_model->get_node_name($r['node_id']);
@@ -122,4 +122,4 @@ class Cabinet extends CI_Controller
     }
 
 
-   }
+}

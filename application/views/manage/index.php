@@ -15,9 +15,10 @@
     </div>
 
 <script>
-    $.messager.show({
-        title:'欢迎您',
-        msg:'欢迎过来转转',
-        showType:'show'
-    });
+
+    $(
+        $('button.btn').click(function(){
+            $.messager.alert('','暂时你还搜不到啥东西哦','error');
+        })
+    );
 </script>

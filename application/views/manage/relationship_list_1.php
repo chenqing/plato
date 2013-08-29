@@ -127,6 +127,8 @@
                     if(! msg){
                         $("#msg_ser").show().html("没有记录！");
                     }else{
+
+                        $("#liOptionms2side__sx").html('');
                         $("#liOptionms2side__sx").append(msg);
                         $("#msg_ser").html("");
                     }

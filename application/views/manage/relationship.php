@@ -110,7 +110,6 @@
             e.preventDefault();
             var server_ids  = $('#liOptionms2side__dx').val();
             var group_id = $("input[name='node_id']").val();
-
             if(! group_id ){
                 alert('你要选择一个设备组，亲！');
                 return false;
@@ -129,6 +128,7 @@
                         }
                     }
                 );
+                var post_url = '<?php echo base_url('manage/relationship/rec_add')?>';
 
         })
         );

@@ -18,7 +18,8 @@ class breadcrumb
         'relationship' =>'设备关系管理',
         'pbl' => 'PBL网络管理',
         'pic' => '流量图管理',
-        'cabinet' => '机柜管理'
+        'cabinet' => '机柜管理',
+        'avatar' => '批量运行'
     );
     protected $CI;
 

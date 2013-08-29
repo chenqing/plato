@@ -20,6 +20,7 @@ class Cabinet_model extends CI_Model
     }
     public function all_cabinet($start,$offset)
     {
+
         $query = $this->db->get('cabinet',$start ,$offset);
         return $query->result();
     }
@@ -29,11 +30,23 @@ class Cabinet_model extends CI_Model
         $this->db->where('cab_id',$cab_id);
         $query = $this->db->get('cabinet');
 
-        if($this->db->affected_rows() > 0){
+        if($query){
             return $query->result_array();
+        }else{
+            return false ;
         }
+    }
 
-        return false ;
+    public function get_cabinet_by_node_id($node_id)
+    {
+        $this->db->where('node_id',$node_id);
+        $query = $this->db->get('cabinet');
+
+        if($query){
+            return $query->result_array();
+        }else{
+            return false ;
+        }
     }
 
     public function edit($cab_id,$data)
