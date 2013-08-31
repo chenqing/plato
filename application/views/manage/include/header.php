@@ -23,8 +23,16 @@
    <script src="<?php echo base_url('assets/js/bootstrap.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/jquery.easyui.min.js') ?>"></script>
     <script src="<?php echo base_url('assets/locale/easyui-lang-zh_CN.js') ?>"></script>
+    <!-- 语法高亮插件 -->
+    <script src="<?php echo base_url('assets/syntaxhighlighter/src/shCore.js') ?>"></script>
+    <script src="<?php echo base_url('assets/syntaxhighlighter/scripts/shBrushBash.js') ?>"></script>
+    <link href="<?php echo base_url('assets/syntaxhighlighter/styles/shCore.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/syntaxhighlighter/styles/shThemeMidnight.css') ?>" rel="stylesheet">
 
-   <link rel="stylesheet" href="<?php echo base_url('assets/css/sticky.footer.css') ?>">
+
+
+
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/sticky.footer.css') ?>">
 
      <style type="text/css">
          body{

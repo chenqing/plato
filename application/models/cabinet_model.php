@@ -49,6 +49,18 @@ class Cabinet_model extends CI_Model
         }
     }
 
+    public function get_server_by_cab_id($cab_id)
+    {
+        if(is_numeric($cab_id)){
+            $this->db->select('dev_list');
+            $this->db->where('cab_id',$cab_id);
+            $query = $this->db->get('cabinet_device');
+            foreach($query->result() as $r){
+              return $r->dev_list;
+            }
+        }
+    }
+
     public function edit($cab_id,$data)
     {
         $this->db->where('cab_id',$cab_id);
@@ -57,6 +69,25 @@ class Cabinet_model extends CI_Model
             return true ;
         }
         return false ;
+    }
+
+    public function add_dev($data)
+    {
+        $this->db->insert('cabinet_device',$data);
+        if($this->db->affected_rows() == 1){
+            return true;
+        }
+        return false;
+    }
+
+    public function update_dev($data)
+    {
+        $this->db->where('cab_id',$data['cab_id']);
+        $this->db->update('cabinet_device',$data);
+        if($this->db->affected_rows() == 1){
+            return true;
+        }
+        return false;
     }
 
 }

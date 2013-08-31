@@ -1,132 +1,26 @@
 <div class="row">
 <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.multiselect2side.js');?>" ></script>
-    <div id="cabinetEdit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="cabinetList" class="modal hide fade" tabindex="-1" role="dialog" style="width: 300px;" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">增加机柜</h3>
+            <h3 id="myModalLabel">机柜设备一览</h3>
         </div>
-        <form class="form-horizontal" method="post" id="cab_edit">
-
-        <div class="modal-body">
-            <div class="alert alert-error  hide fade in">
-                <button type="button" class="close" data-dismiss="alert">×</button>
-                <p id="error"></p>
-            </div>
-
-
-                <fieldset>
-
-                    <div class="control-group">
-                        <!-- Text input-->
-                        <label class="control-label" for="input01">机柜名称</label>
-                        <div class="controls">
-                            <input  name="cab_name" id="cab_name" type="text" placeholder="机柜名称" class="input-xlarge">
-                            <p class="help-block"></p>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <!-- Select Basic -->
-                        <label class="control-label">所属节点</label>
-                        <div class="controls">
-                            <select class="input-xlarge" name="node" id="node">
-
-                                <?php foreach( $this->Node_model->get_child_node() as $node) : ?>
-                                    <option value="<?php echo $node->node_id ?>"><?php echo $node->node_name ; ?></option>
-                                <?php endforeach;?>
-
-                            </select>
-                        </div>
-
-                    </div>
-
-                    <div class="control-group">
-                        <label class="control-label">机柜位置</label>
-
-                        <!-- Multiple Checkboxes -->
-                        <div class="controls">
-                            <textarea name="cab_location" id="cab_location" rows="4" style="width: 280px;">四楼机房进门左拐第二排第四个
-                            </textarea>
-                        </div>
-
-                    </div>
-
-                </fieldset>
-            <input type="hidden" name="cab_id" value="">
-
-
-        </div>
-        <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-            <input class="btn btn-primary" type="submit"  value="保存">
-        </div>
-        </form>
-    </div>
-    <div id="cabinetAdd" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">增加机柜</h3>
-        </div>
-        <form class="form-horizontal" method="post" id="cab_add">
 
             <div class="modal-body">
-                <div class="alert alert-error  hide fade in">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <p id="error"></p>
-                </div>
+                <table id="dev-list" class="table table-striped table-condensed table-bordered">
 
-
-                <fieldset>
-
-                    <div class="control-group">
-                        <!-- Text input-->
-                        <label class="control-label" for="input01">机柜名称</label>
-                        <div class="controls">
-                            <input  name="cab_name" id="cab_name" type="text" placeholder="机柜名称" class="input-xlarge">
-                            <p class="help-block"></p>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <!-- Select Basic -->
-                        <label class="control-label">所属节点</label>
-                        <div class="controls">
-                            <select class="input-xlarge" name="node" id="node">
-
-                                <?php foreach( $this->Node_model->get_child_node() as $node) : ?>
-                                    <option value="<?php echo $node->node_id ?>"><?php echo $node->node_name ; ?></option>
-                                <?php endforeach;?>
-
-                            </select>
-                        </div>
-
-                    </div>
-
-                    <div class="control-group">
-                        <label class="control-label">机柜位置</label>
-
-                        <!-- Multiple Checkboxes -->
-                        <div class="controls">
-                            <textarea name="cab_location" id="cab_location" rows="4" style="width: 280px;">四楼机房进门左拐第二排第四个
-                            </textarea>
-                        </div>
-
-                    </div>
-
-                </fieldset>
+                </table>
 
 
             </div>
             <div class="modal-footer">
                 <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-                <input class="btn btn-primary" type="submit"  value="保存">
             </div>
-        </form>
     </div>
     <div id="deviceEdit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">编辑关系组</h3>
+            <h3 id="myModalLabel">编辑机柜设备</h3>
         </div>
         <div class="modal-body">
             <form id="search_form" class="datagrid-toolbar" method="POST">
@@ -136,16 +30,14 @@
             </form>
 
 
-            <form id="sel_form"  >
+            <form id="dev_add_or_edit"  >
 
                 <div id="sel">
                     <select name="liOption[]" id='liOption' multiple='multiple' size='12' style="width:100px;">
-                        <?php foreach($this->Server_model->get_all_servers() as $server) :?>
-                            <option value="<?php echo $server->server_id ;?>"><?php echo $server->server_name ;?></option>
-                        <?php endforeach ?>
+
                     </select>
                 </div>
-                <input type="hidden" name="real_id" id="real_id" />
+                <input type="hidden" name="cab_id" id="cab_id" value="" />
 
 
         </div>
@@ -159,6 +51,68 @@
 
 
     </div>
+<div id="cabinetEdit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">增加机柜</h3>
+    </div>
+    <form class="form-horizontal" method="post" id="cab_edit">
+
+        <div class="modal-body">
+            <div class="alert alert-error  hide fade in">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <p id="error"></p>
+            </div>
+
+
+            <fieldset>
+
+                <div class="control-group">
+                    <!-- Text input-->
+                    <label class="control-label" for="input01">机柜名称</label>
+                    <div class="controls">
+                        <input  name="cab_name" id="cab_name" type="text" placeholder="机柜名称" class="input-xlarge">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- Select Basic -->
+                    <label class="control-label">所属节点</label>
+                    <div class="controls">
+                        <select class="input-xlarge" name="node" id="node">
+
+                            <?php foreach( $this->Node_model->get_child_node() as $node) : ?>
+                                <option value="<?php echo $node->node_id ?>"><?php echo $node->node_name ; ?></option>
+                            <?php endforeach;?>
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">机柜位置</label>
+
+                    <!-- Multiple Checkboxes -->
+                    <div class="controls">
+                        <textarea name="cab_location" id="cab_location" rows="4" style="width: 280px;">四楼机房进门左拐第二排第四个
+                        </textarea>
+                    </div>
+
+                </div>
+
+            </fieldset>
+            <input type="hidden" name="cab_id" value="">
+
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <input class="btn btn-primary" type="submit"  value="保存">
+        </div>
+    </form>
+</div>
 
     <script>
         var url = location.href;
@@ -350,17 +304,129 @@
                            // $('#search-table').removeClass('hidden');
                             $('#show-table').html('');
                             $('#show-table ').append(
-                             "<tr><th>机柜ID</th><th>所属节点</th><th>机柜名字</th><th>机柜位置</th><th>操作</th><th></th></tr>"
+                             "<tr><th>机柜ID</th><th>所属节点</th><th>机柜名字</th><th>机柜位置</th><th>操作</th><th></th><th>设备管理</th><th>机柜图</th></tr>"
                             );
                             var tr =' ';
                         for(var i = 0; i < data.length;i++){
 
                             tr += "<tr><td>"+data[i].cab_id+"</td><td>"+data[i].node_name+"</td><td>"+data[i].cab_name+"</td><td>"+data[i].cab_location+"</td>" +
-                                    '<td><a href="#cabinetEdit"   data-toggle="modal" data-id ="'+data[i].cab_id+'" class="edit-none-show btn btn-info btn-small	">编辑</a></td><td><button class="btn btn-danger btn-small	">删除</button></td></tr>';
+                                    '<td><a href="#cabinetEdit"   data-toggle="modal" data-id ="'+data[i].cab_id+'" class="edit-none-show btn btn-info btn-smal" >编辑</a></td><td><button class="btn btn-danger btn-small	">删除</button></td><td><a href="#deviceEdit"   data-toggle="modal" data-id ="'+data[i].cab_id+'" class="btn btn-success btn-small	" id="edit-device">编辑机器</a></td><td><button class="btn btn-warning btn-small	">查看</button></td></tr>';
 
                         }
                             $('#show-table').append(tr);
 
+                        }
+                    }
+                );
+            });
+            //搜索前编辑机柜机器时，动态查询后端机器
+            $('#edit-device').live('click',function(){
+                var node_name = $(this).parent().parent().find('td:eq(1)').text();
+                var cab_id = $(this).parent().parent().find('td:eq(0)').text();
+                //要把cab_id 通过hidden的input传过去
+                $('input[name="cab_id"]').attr("value",cab_id);
+                var get_this_node_server_url = host +'/manage/cabinet/get_server_by_node_name/' +node_name;
+                var get_this_cabinet_server_url = host +'/manage/cabinet/get_server_by_cabinet_id/'+cab_id;
+               //异步获取左侧的服务器列表
+                $.get(
+                    get_this_node_server_url,
+                    'json',
+                    function(data){
+                        if(data ){
+                            if(data == '0'){
+                                $.messager.show({
+                                    msg:'该节点还没有设备录入,请检查和录入',
+                                    title:'请注意'
+                                });
+                                $('#liOptionms2side__sx').html(' ');
+                                return false;
+                            }
+                            var data = eval('('+data+')');
+                            var html = ' ';
+                            for(var i = 0;i < data.length;i++){
+                                html +='<option value="'+data[i].server_id+'">'+data[i].server_name+'</option> ';
+                            }
+                            $('#liOptionms2side__sx').html(html);
+                        }
+                    }
+                );
+                //异步获取右侧的服务器列表
+                $.get(
+                    get_this_cabinet_server_url,
+                    'json',
+                    function(data){
+                        var html = ' ';
+                        if(data == '0'){
+                            $('#liOptionms2side__dx').html(html);
+                        }else{
+                            var data = eval('('+data+')');
+                            for(var i = 0;i<data.length;i++){
+                            html += '<option value="'+data[i].server_id+'">'+data[i].server_name+'</option>';
+                            }
+                            $('#liOptionms2side__dx').html(html);
+                        }
+                    }
+                );
+
+            });
+            //搜索后的点击
+
+
+            //往后端数据库里面添加或者更新设备
+            $('#dev_add_or_edit').submit(function(e){
+                e.preventDefault();
+                var cab_id = $('input[name="cab_id"]').val();
+                var server_ids = $('#liOptionms2side__dx').val();
+                var url = host+'/manage/cabinet/server_add_or_edit'
+                console.info(server_ids);
+                var server_list = "";
+                $.each(server_ids,function(index,value){
+                    if(server_ids.length -1 != index){
+                    server_list+=value+",";
+                    }else{
+                        server_list+=value;
+
+                    }
+                });
+                console.info(server_list);
+                $.post(
+                    url,
+                    {'cab_id':cab_id,'dev_list':server_list},
+                    function(data){
+                        if(data == '1'){
+                            $.messager.show({
+                                'msg':'添加成功',
+                                'title':'成功'
+                            });
+                        }else{
+                            $.messager.show({
+                                'msg':'添加失败,请检查后重试',
+                                'title':'失败'
+                            });
+                        }
+                    }
+                );
+            });
+            //查看机柜
+            $('#check-dev').live('click',function(){
+                var cab_id = $(this).attr('data-id');
+                var url = host+'/manage/cabinet/get_server_by_cabinet_id/'+cab_id;
+                $.get(
+                    url,
+                    'json',
+                    function(data){
+                        var html = ' ';
+                        if(data == '0'){
+                            $('#dev-list').html('<b style="color: red">机柜里面还没有设备呢</b> ');
+                        }else{
+                            var data = eval('('+data+')');
+
+                            for(var i = 0;i<data.length;i++){
+                                html += '<tr><td>'+ (i+1) +'</td><td>'+data[i].server_name+'</td></tr>';
+                            }
+                            $('#dev-list').html(' ');
+
+                            $('#dev-list').html(html);
                         }
                     }
                 );
@@ -381,7 +447,7 @@
             <?php foreach($cabinet as $c ):?>
             <tr><td><?php echo $c->cab_id ;?></td><td><?php echo $this->Node_model->get_node_name($c->node_id );?></td><td><?php echo $c->cab_name ;?></td><td><?php echo $c->cab_location ;?></td>
                 <td><a href="#cabinetEdit"   data-toggle="modal" data-id ="<?php echo $c->cab_id ;?>" class="edit-none btn btn-info btn-small	" >编辑</a></td>
-                <td><button class="btn btn-danger btn-small	">删除</button></td><td><a href="#deviceEdit"   data-toggle="modal" data-id ="<?php echo $c->cab_id ;?>" class="btn btn-success btn-small	">编辑机器</a></td><td><button class="btn btn-warning btn-small	">查看</button></td>
+                <td><button class="btn btn-danger btn-small	">删除</button></td><td><a href="#deviceEdit"   data-toggle="modal" data-id ="<?php echo $c->cab_id ;?>" id="edit-device" class="btn btn-success btn-small	">编辑机器</a></td><td><a  href="#cabinetList"  data-toggle="modal" class="btn btn-warning btn-small	" id="check-dev" data-id ="<?php echo $c->cab_id ;?>">查看</a></td>
             </tr>
         <?php endforeach; ?>
         </table>

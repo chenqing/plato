@@ -55,6 +55,19 @@ class Server_model extends CI_Model
 
         return $v;
     }
+    public function get_server_by_node_name($node_name)
+    {
+        $node_id = $this->Node_model->get_node_id($node_name);
+
+        if($node_id){
+            $this->db->select('server_id,node_id,server_name');
+            $this->db->where('node_id',$node_id);
+            $query = $this->db->get('server');
+            return $query->result_array();
+        }else{
+            return false;
+        }
+    }
 
     public function get_server_by_id($server_id)
     {

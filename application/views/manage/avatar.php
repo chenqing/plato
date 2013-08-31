@@ -67,6 +67,16 @@
                         </fieldset>
 
                     </form>
+                    <pre class="brush: bash">
+ df -h
+Filesystem      Size   Used  Avail Capacity  iused    ifree %iused  Mounted on
+/dev/disk0s2   428Gi  181Gi  246Gi    43% 47626366 64494751   42%   /
+devfs          192Ki  192Ki    0Bi   100%      663        0  100%   /dev
+map -hosts       0Bi    0Bi    0Bi   100%        0        0  100%   /net
+map auto_home    0Bi    0Bi    0Bi   100%        0        0  100%   /home
+/dev/disk0s4    37Gi   31Gi  6.1Gi    84%   138616  6349708    2%   /Volumes/Untitled
+/dev/disk2s1   500Mi   51Mi  449Mi    11%    13127   114861   10%   /Volumes/Java 7 Update 25
+                    </pre>
                     <div class="spin hidden text-center">
                         <span class=" icon-spinner icon-4x icon-spin" ></span>
                     </div>
@@ -204,5 +214,7 @@
 
         );
         });
+        SyntaxHighlighter.all()
+
 
 </script>

@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.1.44)
 # Database: blog
-# Generation Time: 2013-08-26 16:25:10 +0000
+# Generation Time: 2013-08-31 16:31:06 +0000
 # ************************************************************
 
 
@@ -38,7 +38,7 @@ LOCK TABLES `cabinet` WRITE;
 
 INSERT INTO `cabinet` (`cab_id`, `cab_name`, `node_id`, `cab_location`)
 VALUES
-	(1,'测试',17,'四楼机房进门左拐第二排第四个\n                            '),
+	(1,'测试',16,'四楼机房进门左拐第二排第四个\n                            '),
 	(2,'aaaa',17,'四楼机房进门往西\n                            '),
 	(3,'再来一个',23,'不知道在哪里                            '),
 	(4,'hello',19,'四楼机房进门左拐第二排第四个\n                            '),
@@ -46,6 +46,30 @@ VALUES
 	(6,'地对地导弹',17,'四楼机房进门左拐第二排第四个\n                            ');
 
 /*!40000 ALTER TABLE `cabinet` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table cabinet_device
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `cabinet_device`;
+
+CREATE TABLE `cabinet_device` (
+  `dev_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `cab_id` int(11) NOT NULL,
+  `dev_list` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`dev_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+LOCK TABLES `cabinet_device` WRITE;
+/*!40000 ALTER TABLE `cabinet_device` DISABLE KEYS */;
+
+INSERT INTO `cabinet_device` (`dev_id`, `cab_id`, `dev_list`)
+VALUES
+	(1,1,'5,6,7,8,9'),
+	(2,3,'14');
+
+/*!40000 ALTER TABLE `cabinet_device` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -133,7 +157,8 @@ INSERT INTO `relationship` (`group_id`, `node_id`, `group_name`, `group_desc`)
 VALUES
 	(1,1,'CMN-HF-WEB-PBL','web组，出口是PBL'),
 	(2,1,'CMN-HF-WEB-TOP','web组，出口是PBL，并且是top20重点保障组'),
-	(4,18,'CMN-NJ-WEB-Q','江苏移动Q节点，WEB服务');
+	(4,18,'CMN-NJ-WEB-Q','江苏移动Q节点，WEB服务'),
+	(5,18,'CMN-NJ-WEB-R','江苏移动R节点，WEB服务');
 
 /*!40000 ALTER TABLE `relationship` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -195,7 +220,9 @@ VALUES
 	(9,16,'CMN-HF-1-3O9','221.130.162.45',5,1,'PBL组FC'),
 	(10,16,'CMN-HF-1-3Z1','221.130.162.34',6,0,'PBL组FSCS'),
 	(11,16,'CMN-HF-1-3Z2','221.130.162.35',6,0,'PBL组FSCS'),
-	(12,16,'CMN-HF-1-3Z3','221.130.162.35',6,0,'PBL组FSCS');
+	(12,16,'CMN-HF-1-3Z3','221.130.162.35',6,0,'PBL组FSCS'),
+	(13,16,'CMN-HF-1-6C1','221.130.162.65',11,0,'PBL组交换机'),
+	(14,23,'CMN-NJ-L-3O1','1.1.1.1',5,0,'江苏移动L节点FC');
 
 /*!40000 ALTER TABLE `server` ENABLE KEYS */;
 UNLOCK TABLES;

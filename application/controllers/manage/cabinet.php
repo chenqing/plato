@@ -92,6 +92,39 @@ class Cabinet extends CI_Controller
         echo json_encode($result);
     }
 
+    public function get_server_by_node_name()
+    {
+        $node_name = trim($this->uri->segment(4));
+        if($arr = $this->Server_model->get_server_by_node_name($node_name))
+        {
+            echo json_encode($arr);
+        }else{
+            echo 0 ;
+        }
+    }
+
+    public function get_server_by_cabinet_id()
+    {
+        $cab_id = trim($this->uri->segment(4));
+        $server_ids = $this->Cabinet_model->get_server_by_cab_id($cab_id);
+        if(empty($server_ids)){
+            echo 0;
+            return false;
+        }
+        $server_ids = explode(',',$server_ids);
+        $result =array();
+        if(is_array($server_ids) && count($server_ids) >0){
+            foreach($server_ids as $s){
+                array_push($result,array('server_id' =>$s,
+                                          'server_name' => $this->Server_model->get_server_by_id($s)
+                    ));
+            }
+            echo json_encode($result);
+        }else{
+            echo 0 ;
+        }
+    }
+
     public function add()
     {
         $data['cab_name'] = $this->input->post('cab_name');
@@ -118,6 +151,45 @@ class Cabinet extends CI_Controller
             echo 0 ;
         }
 
+
+    }
+
+    /*
+     * @Desc 检查是否已经存在了在机架里面
+     * */
+    public function get_dev_by_cab_id($cab_id)
+    {
+        $this->db->where('cab_id',$cab_id);
+        $query = $this->db->get('cabinet_device');
+        if($this->db->affected_rows() >0 ){
+            return true;
+        }else{
+             return false;
+        }
+    }
+    /*
+     * @Desc 往机架里面添加devices，或者edit devices
+     * @return json encode server_id and server_name or 0
+     * */
+    public function server_add_or_edit()
+    {
+        //获取post过来的数据
+        $data['cab_id'] = $this->input->post('cab_id');
+        $data['dev_list'] = $this->input->post('dev_list');
+        if($this->get_dev_by_cab_id($this->input->post('cab_id'))){
+           if($this->Cabinet_model->update_dev($data)){
+              echo 1;
+            }else{
+               echo 0 ;
+           }
+
+        }else{
+            if($this->Cabinet_model->add_dev($data)){
+                echo 1;
+            }else{
+                echo 0 ;
+            }
+        }
 
     }
 
