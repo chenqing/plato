@@ -310,7 +310,7 @@
                         for(var i = 0; i < data.length;i++){
 
                             tr += "<tr><td>"+data[i].cab_id+"</td><td>"+data[i].node_name+"</td><td>"+data[i].cab_name+"</td><td>"+data[i].cab_location+"</td>" +
-                                    '<td><a href="#cabinetEdit"   data-toggle="modal" data-id ="'+data[i].cab_id+'" class="edit-none-show btn btn-info btn-smal" >编辑</a></td><td><button class="btn btn-danger btn-small	">删除</button></td><td><a href="#deviceEdit"   data-toggle="modal" data-id ="'+data[i].cab_id+'" class="btn btn-success btn-small	" id="edit-device">编辑机器</a></td><td><button class="btn btn-warning btn-small	">查看</button></td></tr>';
+                                    '<td><a href="#cabinetEdit"   data-toggle="modal" data-id ="'+data[i].cab_id+'" class="edit-none-show btn btn-info btn-smal" >编辑</a></td><td><button class="btn btn-danger btn-small	" id="icb-delete">删除</button></td><td><a href="#deviceEdit"   data-toggle="modal" data-id ="'+data[i].cab_id+'" class="btn btn-success btn-small	" id="edit-device">编辑机器</a></td><td><button class="btn btn-warning btn-small	">查看</button></td></tr>';
 
                         }
                             $('#show-table').append(tr);
@@ -417,7 +417,7 @@
                     function(data){
                         var html = ' ';
                         if(data == '0'){
-                            $('#dev-list').html('<b style="color: red">机柜里面还没有设备呢</b> ');
+                            $('#dev-list').html('<b style="color: red">机柜里面还没有设备呢</b>');
                         }else{
                             var data = eval('('+data+')');
 
@@ -430,6 +430,13 @@
                         }
                     }
                 );
+            });
+            //删除机柜，这里要确保，删除的机柜的同时，腰要把另外一个表里面的关于这个机柜装的机器列表，也要对应的删掉
+            $('#icb-delete').live('click',function(){
+                if($.messager.confirm('请注意！','你确认要删除该机柜吗？这里面可能还放着机器呢')){
+                    var cab_id = $(this).parent().parent().children().eq(0).text();
+
+                }
             });
 
         });
@@ -447,7 +454,7 @@
             <?php foreach($cabinet as $c ):?>
             <tr><td><?php echo $c->cab_id ;?></td><td><?php echo $this->Node_model->get_node_name($c->node_id );?></td><td><?php echo $c->cab_name ;?></td><td><?php echo $c->cab_location ;?></td>
                 <td><a href="#cabinetEdit"   data-toggle="modal" data-id ="<?php echo $c->cab_id ;?>" class="edit-none btn btn-info btn-small	" >编辑</a></td>
-                <td><button class="btn btn-danger btn-small	">删除</button></td><td><a href="#deviceEdit"   data-toggle="modal" data-id ="<?php echo $c->cab_id ;?>" id="edit-device" class="btn btn-success btn-small	">编辑机器</a></td><td><a  href="#cabinetList"  data-toggle="modal" class="btn btn-warning btn-small	" id="check-dev" data-id ="<?php echo $c->cab_id ;?>">查看</a></td>
+                <td><button class="btn btn-danger btn-small	" id="icb-delete">删除</button></td><td><a href="#deviceEdit"   data-toggle="modal" data-id ="<?php echo $c->cab_id ;?>" id="edit-device" class="btn btn-success btn-small	">编辑机器</a></td><td><a  href="#cabinetList"  data-toggle="modal" class="btn btn-warning btn-small	" id="check-dev" data-id ="<?php echo $c->cab_id ;?>">查看</a></td>
             </tr>
         <?php endforeach; ?>
         </table>

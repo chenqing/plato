@@ -320,5 +320,4 @@
 <div id="push"></div>
 </div><!-- end of wrap -->
 <!-- begin of javascript -->
-<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.edatagrid.js'); ?>"></script>
 
