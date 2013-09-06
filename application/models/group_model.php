@@ -65,6 +65,9 @@ class Group_model extends CI_Model
 
     }
 
+
+
+
     public function get_group_name_by_id($id)
     {
         $this->db->where('group_id',$id);

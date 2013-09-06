@@ -29,6 +29,20 @@
     <link href="<?php echo base_url('assets/syntaxhighlighter/styles/shCore.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/syntaxhighlighter/styles/shThemeMidnight.css') ?>" rel="stylesheet">
 
+    <!-- fancybox 主要用于登陆以及拓扑图展示 -->
+
+    <script src="<?php echo base_url('assets/fancybox/jquery.fancybox.js') ?>"></script>
+    <script src="<?php echo base_url('assets/fancybox/jquery.fancybox.pack.js') ?>"></script>
+    <script src="<?php echo base_url('assets/fancybox/helpers/jquery.fancybox-media.js') ?>"></script>
+    <script src="<?php echo base_url('assets/fancybox/helpers/jquery.fancybox-buttons.js') ?>"></script>
+    <script src="<?php echo base_url('assets/fancybox/helpers/jquery.fancybox-thumbs.js') ?>"></script>
+    <link href="<?php echo base_url('assets/fancybox/jquery.fancybox.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/fancybox/helpers/jquery.fancybox-buttons.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/fancybox/helpers/jquery.fancybox-thumbs.css') ?>" rel="stylesheet">
+
+
+
+
 
 
 

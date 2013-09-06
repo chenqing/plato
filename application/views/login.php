@@ -24,82 +24,47 @@
 
 
 </style>
-<div class="container">
-    <div class="row-fluid">
-        <div class="span3">
+<a class="fancybox" href="#login" >Inline</a>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".fancybox").fancybox({
+            'hideOnContentClick': true,
+            openEffect  : 'none',
+            closeEffect	: 'none',
+            helpers: {
 
-        </div>
-
-        <div class="  span6">
-
-            <?php
-                if($this->session->userdata('error'))
-                {
-                    echo '<div class="alert alert-error"><a href="#" class="close" data-dismiss="alert">&times;</a>';
-                    echo $this->session->userdata('error');
-                    echo '</div>';
+                overlay : {
+                    closeClick : true,  // if true, fancyBox will be closed when user clicks on the overlay
+                    speedOut   : 200,   // duration of fadeOut animation
+                    showEarly  : true,  // indicates if should be opened immediately or wait until the content is ready
+                    css        : {'backgroundColor':'#000000'},    // custom CSS properties
+                    locked     : false   // if true, the content will be locked into overlay
                 }
-            ?>
-            <form class="form-horizontal form-signin" action="validate_user" method="post">
+            }
+
+
+        });
+    });
+</script>
+
+
+    <form class="form-horizontal" style="display: none;  width: 380px;" id="login" >
                 <fieldset>
-                    <div >
-                        <legend  class="text-center" style="color:#075d9f;">欢迎登陆 </legend>
-                    </div>
-                    <div class="control-group">
+                    <legend>登陆柏拉图</legend>
+                    <label for="user" class="control-label" style="width: 60px;">用户名</label><span>&nbsp&nbsp&nbsp</span>
+                <input type="text" id="user" placeholder="Email" name="user">
+                 <p></p>
+                    <label for="pass" class="control-label" style="width: 60px;">密码  </label><span>&nbsp&nbsp&nbsp</span>
+                <input type="password" id="pass" placeholder="Password">
+                    <p></p
 
-                        <!-- Text input-->
-                        <label class="control-label" for="username">用户名</label>
-                        <div class="controls">
-                            <input type="text" placeholder="your username here..." class="input" name="username"
-                                value="<?php echo set_value('username'); ?>">
-                        </div>
-                    </div>
 
-                    <div class="control-group">
-
-                        <!-- Text input-->
-                        <label class="control-label" for="password">密码</label>
-                        <div class="controls">
-                            <input type="password" placeholder="your password" class="input" name="password">
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <label class="control-label"></label>
-                        <div class="controls">
-                            <!-- Multiple Checkboxes -->
-                            <label class="checkbox">
-                                <input type="checkbox" value="remember me" name="remmeber">
-                                remember me
-                            </label>
-                        </div>
-
-                    </div>
-
-                    <div class="control-group">
-                        <label class="control-label"></label>
-
-                        <!-- Button -->
-                        <div class="controls">
-                            <button class="btn btn-primary ">登陆</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="text-right">
-                                <a  rel="tooltip" href="#" data-toggle="tooltip"  data-placement="right"
-                                    title="" data-original-title="亲，那就去cpis-opt吼一声呢">
-                                    &nbsp忘记密码？
-                                </a>
-                            </span>
-                        </div>
-                    </div>
-
-                </fieldset>
-            </form>
-
+                    </fieldset>
+        <div style="padding-left: 80px;">
+            <button type="submit" class="btn btn-success">登陆</button><span>&nbsp&nbsp&nbsp</span>
+            <input type="checkbox" id="remember" name=""> Remember me
         </div>
+    </form>
 
-        <div class="span1">
-            &nbsp
-        </div>
-    </div>
 
-</div>
-<!-- end of container -->
-<div id="push"></div>
+

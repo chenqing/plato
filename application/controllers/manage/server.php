@@ -25,6 +25,9 @@ class Server extends CI_Controller
         $this->load->library('breadcrumb');
         $this->config->load('pagination');
         $this->load->helper('date');
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
     }
 
     public function index()

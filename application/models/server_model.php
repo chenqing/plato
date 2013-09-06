@@ -143,6 +143,12 @@ class Server_model extends CI_Model
     }
 
 
+    public function get_role_name_by_server($server_id)
+    {
+        return $this->get_role_name($this->get_role_id_by_server($server_id));
+    }
+
+
 
 
     public function role_add($data)

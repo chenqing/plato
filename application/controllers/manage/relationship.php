@@ -35,6 +35,9 @@ class Relationship extends CI_Controller
 
     public function index()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $data['breadcrumb'] = $this->breadcrumb->get_name();
         $data['breadcrumb_link'] = $this->breadcrumb->get_link();
         //var_dump($this->breadcrumb->get_link());
@@ -46,6 +49,9 @@ class Relationship extends CI_Controller
 
     public function add()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $data['breadcrumb'] = $this->breadcrumb->get_name();
         $data['breadcrumb_link'] = $this->breadcrumb->get_link();
         //var_dump($this->breadcrumb->get_link());
@@ -56,6 +62,7 @@ class Relationship extends CI_Controller
     }
     public function relationship_list()
     {
+
         $config['base_url'] = site_url('manage/relationship/relationship_list');
         $config['total_rows'] = $this->db->count_all('relationship_real');
         $config['per_page'] = 5;
@@ -90,6 +97,9 @@ class Relationship extends CI_Controller
 
     public function group_add()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $data['node_id'] = $this->input->post('node_id');
         $data['group_name'] = $this->input->post('group_name');
         $data['group_desc'] = $this->input->post('group_desc');
@@ -130,6 +140,9 @@ class Relationship extends CI_Controller
 
     public function group_edit()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $data['node_id'] = $this->input->post('node_id');
         $data['group_name'] = $this->input->post('group_name');
         $data['group_desc'] = $this->input->post('group_desc');
@@ -153,6 +166,9 @@ class Relationship extends CI_Controller
 
     public function group_delete()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $group_id = $this->input->post('ids');
         if($this->Relationship_model->group_delete($group_id)){
             echo json_encode(
@@ -173,6 +189,9 @@ class Relationship extends CI_Controller
 
     public function rec_add()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $server_ids = $this->input->post('server_ids');
         if(is_array($server_ids)){
             $data['server_ids'] = implode(',',$server_ids);
@@ -203,6 +222,9 @@ class Relationship extends CI_Controller
 
     public function rec_edit()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $server_ids = $this->input->post('server_ids');
         if(is_array($server_ids)){
             $data['server_ids'] = implode(',',$server_ids);
@@ -246,8 +268,6 @@ class Relationship extends CI_Controller
 
     public function get_group_api()
     {
-        header('WWW-Authenticate: Basic realm="Test"');
-        header('HTTP/1.1 401 Unauthorized');
         $group_name = $this->uri->segment(4);
         echo json_encode($this->Relationship_model->get_group_api($group_name));
     }

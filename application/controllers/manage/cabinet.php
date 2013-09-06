@@ -18,25 +18,15 @@ class Cabinet extends CI_Controller
         parent::__construct();
 
         $this->load->database();
-        $this->load->helper(array('url','form'));
-        $this->load->library('table');
-        $this->load->model('User_model');
-        $this->load->model('Group_model');
-        $this->load->model('Server_model');
-        $this->load->model('Node_model');
-        $this->load->model('Relationship_model');
-        $this->load->model('Cabinet_model');
-        $this->load->library('pagination');
-        $this->load->library('user_agent');
-        $this->load->library('breadcrumb');
-        $this->load->library('permission');
         $this->config->load('pagination');
-        $this->load->helper('date');
 
     }
 
     public function index()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $config['base_url'] = site_url('manage/cabinet/index/');
         $config['total_rows'] = $this->db->count_all('cabinet');
         $config['per_page'] = 5;
@@ -116,7 +106,8 @@ class Cabinet extends CI_Controller
         if(is_array($server_ids) && count($server_ids) >0){
             foreach($server_ids as $s){
                 array_push($result,array('server_id' =>$s,
-                                          'server_name' => $this->Server_model->get_server_by_id($s)
+                                          'server_name' => $this->Server_model->get_server_by_id($s),
+                                          'server_role' => $this->Server_model->get_role_name_by_server($s)
                     ));
             }
             echo json_encode($result);
@@ -127,6 +118,9 @@ class Cabinet extends CI_Controller
 
     public function add()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $data['cab_name'] = $this->input->post('cab_name');
         $data['node_id'] = $this->input->post('node_id');
         $data['cab_location'] = $this->input->post('cab_location');
@@ -141,6 +135,10 @@ class Cabinet extends CI_Controller
 
     public function edit()
     {
+
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $cab_id = $this->uri->segment(4);
         $data['cab_name'] = $this->input->post('cab_name');
         $data['node_id'] = $this->input->post('node_id');
@@ -191,6 +189,19 @@ class Cabinet extends CI_Controller
             }
         }
 
+    }
+
+    public function cabinet_delete()
+    {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
+        $cab_id = $this->uri->segment(4);
+        if($this->Cabinet_model->cabinet_delete($cab_id)){
+            echo 1;
+        }else{
+            echo 0;
+        }
     }
 
 

@@ -17,7 +17,70 @@
                 <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
             </div>
     </div>
-    <div id="deviceEdit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="cabinetAdd" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">增加机柜</h3>
+    </div>
+    <form class="form-horizontal" method="post" id="cab_add">
+
+        <div class="modal-body">
+            <div class="alert alert-error  hide fade in">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <p id="error"></p>
+            </div>
+
+
+            <fieldset>
+
+                <div class="control-group">
+                    <!-- Text input-->
+                    <label class="control-label" for="input01">机柜名称</label>
+                    <div class="controls">
+                        <input  name="cab_name" id="cab_name" type="text" placeholder="机柜名称" class="input-xlarge">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- Select Basic -->
+                    <label class="control-label">所属节点</label>
+                    <div class="controls">
+                        <select class="input-xlarge" name="node" id="node">
+
+                            <?php foreach( $this->Node_model->get_child_node() as $node) : ?>
+                                <option value="<?php echo $node->node_id ?>"><?php echo $node->node_name ; ?></option>
+                            <?php endforeach;?>
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">机柜位置</label>
+
+                    <!-- Multiple Checkboxes -->
+                    <div class="controls">
+                        <textarea name="cab_location" id="cab_location" rows="4" style="width: 280px;">四楼机房进门左拐第二排第四个
+                        </textarea>
+                    </div>
+
+                </div>
+
+            </fieldset>
+            <input type="hidden" name="cab_id" id="cab_id_add" value="">
+
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            <input class="btn btn-primary" type="submit"  value="保存">
+        </div>
+    </form>
+</div>
+
+<div id="deviceEdit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="myModalLabel">编辑机柜设备</h3>
@@ -54,7 +117,7 @@
 <div id="cabinetEdit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">增加机柜</h3>
+        <h3 id="myModalLabel">编辑机柜</h3>
     </div>
     <form class="form-horizontal" method="post" id="cab_edit">
 
@@ -150,7 +213,7 @@
 
             $('#cabinetAdd #cab_add').submit(function(e){
                 e.preventDefault();
-                var cab_name = $('#cabinetAdd input[name="cab_name"]').val();
+                var cab_name = $('input[name="cab_name"]').val();
                 if(cab_name.length < 1){
                     $.messager.alert('请注意','机柜的名字太短了点吧','error');
                     return false;
@@ -253,18 +316,19 @@
             });
             $('#cab_edit').submit(function(e){
                 e.preventDefault();
-                var cab_id = $('input[name="cab_id"]').val();
-                var cab_name = $('input[name="cab_name"]').val();
+                var cab_id = $(this).find('input[name="cab_id"]').val();
+                var cab_name = $(this).find('input[name="cab_name"]').val();
                 if(cab_name.length < 1){
                     $.messager.alert('请注意','机柜的名字太短了点吧','error');
                     return false;
                 }
-                var node_id = $('#node').find('option:selected').val();
-                var cab_location = $('#cab_location').val();
+                var node_id = $('#cab_edit #node').find('option:selected').val();
+                var cab_location = $('#cab_edit #cab_location').val();
                 if(cab_location.length < 5){
                     $.messager.alert('请注意','你写这么简单能找到么？','error');
                     return false;
                 }
+                console.info(cab_id);
 
                 $.post(
                     host+'/manage/cabinet/edit/'+cab_id,
@@ -422,7 +486,7 @@
                             var data = eval('('+data+')');
 
                             for(var i = 0;i<data.length;i++){
-                                html += '<tr><td>'+ (i+1) +'</td><td>'+data[i].server_name+'</td></tr>';
+                                html += '<tr><td>'+ (i+1) +'</td><td>'+data[i].server_name+'</td><td>'+data[i].server_role+'</tr>';
                             }
                             $('#dev-list').html(' ');
 
@@ -433,10 +497,34 @@
             });
             //删除机柜，这里要确保，删除的机柜的同时，腰要把另外一个表里面的关于这个机柜装的机器列表，也要对应的删掉
             $('#icb-delete').live('click',function(){
-                if($.messager.confirm('请注意！','你确认要删除该机柜吗？这里面可能还放着机器呢')){
-                    var cab_id = $(this).parent().parent().children().eq(0).text();
+                var cab_id = $(this).parent().parent().children().eq(0).text();
+                var url = host+'/manage/cabinet/cabinet_delete/'+cab_id;
+                $.messager.confirm('请注意！','你确认要删除该机柜吗？这里面可能还放着机器呢',function(r){
+                    if(r){
+
+                    $.get(
+                        url,
+                        function(data){
+                            if(data == "1"){
+                                $.messager.show({
+                                    'title':'成功',
+                                    'msg':'删除机柜成功'
+                                });
+                                setTimeout("location.reload()", 1000);
+
+                            }else{
+                                $.messager.show({
+                                    'title':'失败鸟',
+                                    'msg':'删除机柜失败'
+                                });
+
+                                return false;
+                            }
+                        }
+                    );
 
                 }
+                });
             });
 
         });
@@ -447,7 +535,7 @@
         <form name="cabinet_search" id="cabinet_search" class="form-inline datagrid-toolbar">
             <input type="text" name="node_name" placeholder="输入节点名搜索" />
              <button type="submit" class="btn ">搜索</button>
-            <div style="float: right;"><a href="#cabinetAdd" data-toggle="modal" class="btn btn-primary">增加机柜</a></div>
+            <div style="float: right;"><a id="add-cabinet" href="#cabinetAdd" data-toggle="modal" class="btn btn-primary">增加机柜</a></div>
         </form>
         <table id="show-table" class="table table-hover table-condensed table-striped" style="margin-top: 5px;">
          <tr><th>机柜ID</th><th>所属节点</th><th>机柜名字</th><th>机柜位置</th><th>操作</th><th></th><th>设备管理</th><th>机柜图</th></tr>

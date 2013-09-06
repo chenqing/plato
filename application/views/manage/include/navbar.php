@@ -28,20 +28,20 @@
                         }else{
                             ?>
 
-                            <a  class="btn btn-small btn-inverse" style="color: #ffffff;" href="<?php echo base_url('manage/user/login');?>"> 登陆 </a>
+                            <a  class=" fancybox btn btn-small btn-inverse" style="color: #ffffff;" href="#login1"> 登陆 </a>
 
                         <?php }?>
                     </p>
                     <ul class="nav">
-                        <li class="active"><a href="<?php echo base_url('manage/') ;?>">首页</a></li>
+                        <li   class="active"><a  id="index" href="<?php echo base_url('manage/') ;?>">首页</a></li>
 
-                        <li><a  href="<?php echo base_url('manage/node') ;?>">节点管理</a></li>
+                        <li><a id="node"  href="<?php echo base_url('manage/node') ;?>">节点管理</a></li>
                         <li><a  href="<?php echo base_url('manage/cabinet') ;?>">机柜管理</a></li>
                         <li><a href="<?php echo base_url('manage/server') ;?>">设备管理</a></li>
                         <li><a href="<?php echo base_url('manage/relationship') ;?>">设备关系管理</a></li>
                         <li><a href="<?php echo base_url('manage/avatar') ;?>">批量运行</a></li>
                         <li><a href="<?php echo base_url('manage/pbl') ;?>">PBL网络管理</a></li>
-                        <?php if($this->permission->is_guest() ||$this->permission->is_root() ){ ?>
+                        <?php if($this->permission->is_operation() || $this->permission->is_root()  ){ ?>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">用户管理<b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -60,9 +60,81 @@
     </div>
 
 <!-- navbar end -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //node click
+            var to_url ;
+            <?php if(!$this->session->userdata('is_loged_in')){ ?>
+            $('ul.nav li a').not('#index').click(function(){
+                $(this).addClass('fancybox');
+                to_url = $(this).attr('href');
+                $(this).attr('href','#login1');
 
-<!-- container start -->
+            });
+
+            <?php } ?>
+            $(".fancybox").fancybox({
+                'hideOnContentClick': true,
+                openEffect  : 'none',
+                closeEffect	: 'none',
+                helpers: {
+
+                    overlay : {
+                        opacity:'0.6',
+                        closeClick : true,  // if true, fancyBox will be closed when user clicks on the overlay
+                        speedOut   : 200,   // duration of fadeOut animation
+                        showEarly  : true,  // indicates if should be opened immediately or wait until the content is ready
+                       // css        : {'backgroundColor':'#000000'},    // custom CSS properties
+                        locked     : false   // if true, the content will be locked into overlay
+                    }
+                }
+
+            });
+            $('form#login1').submit(function(event){
+                event.preventDefault();
+                var user = $('#user').val();
+                var pass = $('#pass').val();
+                var url = 'http://'+location.host+'/manage/user/validate_user';
+                if(user.length <3){
+                    $('#user_error').empty().html('   太短了');
+                    $('input[name="user"]').focus()
+                    return false;
+                }
+                if(pass.length <6){
+                    $('#pass_error').empty().html(' 密码这么短？');
+                    $('input[name="pass"]').focus()
+                    return false;
+                }
+                $.post(
+                    url,
+                    {'username':user,'password':pass},
+                    function(data){
+                        if(data == 'ok'){
+                            $.fancybox.close();
+                            if(to_url){
+                                window.location.href=to_url;
+                            }else{
+                                window.location.href='http://'+location.host+'/manage';
+
+                            }
+                        }else{
+                            $('#pass_error').empty();
+                            $('#user_error').empty();
+                            $('.login-error').html('用户名或者密码错误').fadeIn();;
+                        }
+                    }
+
+                );
+            });
+        });
+    </script>
+
+
+
+
+    <!-- container start -->
 <div class="container">
+
 
     <div class="row">
         <ul class="breadcrumb">

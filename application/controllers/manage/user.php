@@ -29,6 +29,7 @@ class User extends CI_Controller
         $this->config->load('pagination');
         $this->load->helper('date');
 
+
 	}
 	
 	/**
@@ -37,6 +38,9 @@ class User extends CI_Controller
 	 */
 	public function index()
 	{
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $config['base_url'] = site_url('manage/user/index/');
         $config['total_rows'] = $this->db->count_all('user');
         $config['per_page'] = 5;
@@ -55,6 +59,9 @@ class User extends CI_Controller
 	
 	public function add()
 	{
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
 
         $data['user_name'] = $this->input->post('user_name');
         $data['group_id'] = $this->input->post('group_id');
@@ -93,6 +100,9 @@ class User extends CI_Controller
 	
 	public function edit()
 	{
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $user_id = $this->uri->segment(4) ;
         $data['user_name'] = $this->input->post('user_name');
         $data['group_id'] = $this->input->post('group_id');
@@ -108,6 +118,9 @@ class User extends CI_Controller
         }
     public function get_user_by_id()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $user_id = $this->uri->segment(4) ;
         if(is_numeric($user_id) && $this->input->is_ajax_request()){
         echo json_encode($this->User_model->get_user_by_id($user_id));
@@ -116,6 +129,9 @@ class User extends CI_Controller
 
     public function get_all_user_json()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $start = $this->input->post('rows');
         $offset = $this->input->post('page');
         echo $this->User_model->get_all_user_json();
@@ -123,6 +139,9 @@ class User extends CI_Controller
 
     public function get_all_user_jsons()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $start = $this->input->post('rows');
         $offset = $this->input->post('page');
         echo $this->User_model->get_all_user_jsons();
@@ -130,6 +149,9 @@ class User extends CI_Controller
 
     public function test_json()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $start = $this->input->post('rows');
         $offset = $this->input->post('page');
         if($this->input->post('sort')){ $sort = $this->input->post('sort');}else{ $sort = 'node_id';}
@@ -143,6 +165,9 @@ class User extends CI_Controller
 
     public function delete()
 	{
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $user_id = $this->uri->segment(4) ;
         if(is_numeric($user_id) && $this->input->is_ajax_request()){
             if($this->User_model->delete_user($user_id)){
@@ -209,31 +234,29 @@ class User extends CI_Controller
 
     public function validate_user()
     {
-        $this->load->library('form_validation');
-
-        $config = array(
-            array(
-                'field'   => 'username',
-                'label'   => '用户名',
-                'rules'   => 'required'
-            ),
-
-            array(
-                'field'   => 'password',
-                'label'   => '密码',
-                'rules'   => 'required'
-            )
-
-        );
-
-        $this->form_validation->set_rules($config);
-        #$this->form_validation->set_error_delimiters('<div class="alert alert-error">
-         #       <a href="#" class="close" data-dismiss="alert">&times;</a>','</div>');
-        $this->form_validation->set_message('required', '%s 不能为空');
-
-        if($this->form_validation->run())
+        $back_url = '';
+        foreach(parse_url($_SERVER['HTTP_REFERER']) as $key => $url)
         {
-            if($this->User_model->validate_user())
+          //  $tmp = explode("=",$url['query']);
+           if($key == 'query'){
+               $tmp = explode("=",$url);
+               $back_url = $tmp[1];
+
+           }
+        }
+        //使用ldap
+        $pass = $this->input->post('password') ;
+        if(! isset($pass) || empty($pass)){
+            echo 'error';
+            exit();
+        }
+
+        if($this->config->item('use_ldap')){
+            $ds = ldap_connect($this->config->item('ldap_url'));
+            $bind = @ldap_bind($ds,$this->input->post('username'),$pass);
+        }
+            //if($this->User_model->validate_user())
+            if($bind)
             {
                 $data = array(
                     'user_name' => $this->input->post('username'),
@@ -242,7 +265,7 @@ class User extends CI_Controller
                     'group_id'    =>$this->User_model->get_group_id($this->input->post('username')) ,
                 );
                 $this->session->set_userdata($data);
-                if($this->input->post('remmber')){
+                if($this->input->post('remember')){
                 $cookie = array(
                     'name'   => 'user_name',
                     'value'  => $this->input->post('username'),
@@ -255,22 +278,17 @@ class User extends CI_Controller
 
                 $this->input->set_cookie($cookie);
                 }
-                redirect('manage/index');
+               //redirect($back_url);
+                echo 'ok';
             }
             else
             {
-                $this->session->set_userdata('error','用户名或者密码错误，请重试');
-                $this->login();
+               // $this->session->set_userdata('error','用户名或者密码错误，请重试');
+               // $this->login();
                // redirect('manage/user/login');
+                echo "error";
             }
 
-        }
-        else
-        {
-            $this->session->set_userdata('error',validation_errors());
-            $this->login();
-           // redirect('manage/user/login');
-        }
     }
 	
 	

@@ -25,10 +25,14 @@ class Node extends CI_Controller
         $this->load->library('breadcrumb');
         $this->config->load('pagination');
         $this->load->helper('date');
+
     }
 
     public function index()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $data['breadcrumb'] = $this->breadcrumb->get_name();
         $data['breadcrumb_link'] = $this->breadcrumb->get_link();
         //var_dump($this->breadcrumb->get_link());
@@ -65,6 +69,9 @@ class Node extends CI_Controller
 
     public function add()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $data['node_name'] = $this->input->post('node_name');
         $data['node_desc'] = $this->input->post('node_desc');
         $data['node_role'] = $this->input->post('node_role');
@@ -98,6 +105,9 @@ class Node extends CI_Controller
 
     public function edit()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $data['node_name'] = $this->input->post('node_name');
         $data['node_desc'] = $this->input->post('node_desc');
         $data['node_role'] = $this->input->post('node_role');
@@ -122,6 +132,9 @@ class Node extends CI_Controller
 
     public function delete()
     {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
         $node_ids = $this->input->post('ids');
         $node_id = explode(',',$node_ids);
         if($this->Node_model->delete($node_id)){

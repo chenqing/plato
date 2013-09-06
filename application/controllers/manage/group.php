@@ -14,6 +14,9 @@ class Group extends CI_Controller
         $this->load->library('pagination');
         $this->load->library('user_agent');
         $this->load->library('Breadcrumb');
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
     }
 
     public function index()

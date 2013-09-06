@@ -150,8 +150,8 @@ class User_model extends CI_Model
         $this->db->where('user_name',$data);
         $query = $this->db->get('user');
 
-        $row = $query->row();
-        return $row->user_privilege;
+        foreach($query->result() as $p)
+        return $p->user_privilege;
     }
 
     public function validate_user()

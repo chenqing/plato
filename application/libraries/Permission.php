@@ -38,19 +38,33 @@ class permission
         $this->CI->load->model('Group_model');
     }
 
+    /**
+     * @return int|string
+     * @Desc  获取回话中保存的权限
+     */
+
     private function get_pri()
     {
         $pri = $this->CI->session->userdata('privilege');
         return (isset($pri) and is_numeric($pri)) ? $pri:2;
     }
 
+    /**
+     * @return string
+     * @Desc 获取用户名
+     */
+
     public function get_group()
     {
         $group_id = $this->CI->session->userdata('group_id');
-        $name = $this->CI->Group_model->get_group_name($group_id);
+        $name = $this->CI->Group_model->get_group_name_by_id($group_id);
         $group_name = (!empty($name))?$name:'guest';
         return $group_name ;
     }
+
+    /**
+     * @return bool
+     */
     public function has_visit_permission()
     {
         if($this->get_pri() & permission::VISIT ){
@@ -61,6 +75,9 @@ class permission
 
     }
 
+    /**
+     * @return bool
+     */
     public function has_create_permission()
     {
         if($this->get_pri() & permission::CREATE ){
@@ -100,20 +117,24 @@ class permission
 
     public function is_root()
     {
-        if($this->get_group() == 'root'){
+
+        if($this->get_group() == "root"){
             return true ;
+        }else{
+
+            return false ;
         }
 
-        return false ;
     }
 
     public function is_operation()
     {
         if($this->get_group() == 'operation'){
             return true ;
+        }else{
+            return false ;
         }
 
-        return false ;
     }
 
     public function is_standard()
