@@ -531,7 +531,14 @@
 
     </script>
 
-    <div class="span12">
+<div class="span2 well">
+    <ul class="nav  nav-stacked nav-list ">
+        <li class="nav-header input-xxlarge"><span class=" icon-edit icon-2x"></span>机柜管理</li>
+
+        <li>&nbsp</li>
+    </ul>
+</div>
+    <div class="span9">
         <form name="cabinet_search" id="cabinet_search" class="form-inline datagrid-toolbar">
             <input type="text" name="node_name" placeholder="输入节点名搜索" />
              <button type="submit" class="btn ">搜索</button>

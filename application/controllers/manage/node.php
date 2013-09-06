@@ -144,4 +144,22 @@ class Node extends CI_Controller
         }
     }
 
+    /**
+     * 节点拓扑页面
+     */
+
+    public function topology()
+    {
+        if( ! $this->session->userdata('is_loged_in') ){
+            redirect(site_url('manage/index'));
+        }
+        $data['breadcrumb'] = $this->breadcrumb->get_name();
+        $data['breadcrumb_link'] = $this->breadcrumb->get_link();
+        //var_dump($this->breadcrumb->get_link());
+        $this->load->view('manage/include/header',$data);
+        $this->load->view('manage/include/navbar',$data);
+        $this->load->view('manage/node_topology');
+        $this->load->view('manage/include/footer');
+    }
+
 }

@@ -5,6 +5,7 @@
             <li class="nav-header"><span class=" icon-edit icon-2x"></span>节点管理</li>
             <li><a href="#nodeBatchAdd" data-toggle="modal"><span class="icon-plus"></span>批量添加</a></li>
             <li><a href=""><span class="icon-user"></span>节点角色</a></li>
+            <li><a href="<?php echo base_url('manage/node/topology');?>"><span class="icon-sitemap"></span>节点概览</a></li>
             <li>&nbsp</li>
         </ul>
     </div>
