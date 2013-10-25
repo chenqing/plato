@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2ff9853d-0695-4926-a66a-1b51808c28ed" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/uploads/files/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/uploads/files/pdftest.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/uploads/files/test-2.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/uploads/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/tinymce_3.5.80.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/.index.html.swp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/attachment/attachment.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/attachment/attachment.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/attachment/callbacks.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/attachment/fileTypeImages/icon_chm.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/attachment/fileTypeImages/icon_default.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/attachment/fileTypeImages/icon_doc.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/attachment/fileTypeImages/icon_exe.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/attachment/fileTypeImages/icon_mp3.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/attachment/fileTypeImages/icon_mv.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/attachment/fileTypeImages/icon_pdf.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/attachment/fileTypeImages/icon_ppt.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/attachment/fileTypeImages/icon_psd.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/attachment/fileTypeImages/icon_rar.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/attachment/fileTypeImages/icon_txt.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/attachment/fileTypeImages/icon_xls.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/attachment/fileTypeMaps.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/highlightcode/highlightcode.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/image/image.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/image/image.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/image/image.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/image/imageUploader.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/image/images/center_focus.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/image/images/left_focus.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/image/images/none_focus.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/image/images/right_focus.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/internal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/dialogs/tangram.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/editor_all.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/editor_all_min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/editor_config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/lang/zh-cn/images/copy.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/lang/zh-cn/images/imglabel.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/lang/zh-cn/images/localimage.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/lang/zh-cn/images/music.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/lang/zh-cn/images/upload.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/lang/zh-cn/zh-cn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/php/Uploader.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/php/fileUp.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/php/getContent.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/php/getMovie.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/php/getRemoteImage.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/php/imageManager.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/php/imageUp.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/php/scrawlUp.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/php/upload/20130218/13611769539036.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/php/upload/20130225/13617905371886.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/php/upload/20130225/13617905859984.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/css/ueditor.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/dialogbase.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/anchor.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/arrow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/button-bg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/cancelbutton.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/cursor_h.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/cursor_h.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/cursor_v.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/cursor_v.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/dialog-title-bg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/filescan.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/highlighted.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/icons-all.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/icons.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/icons.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/lock.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/neweditor-tab-bg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/pagebreak.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/scale.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/spacer.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/sparator_v.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/toolbar_bg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/unhighlighted.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/upload.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/videologo.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/word.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/default/images/wordpaste.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/themes/iframe.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/third-party/SyntaxHighlighter/shCore.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/third-party/codemirror/codemirror.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/third-party/codemirror/codemirror.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/third-party/swfupload/fileprogress.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/third-party/swfupload/swfupload.cookies.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/third-party/swfupload/swfupload.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/third-party/swfupload/swfupload.proxy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/third-party/swfupload/swfupload.queue.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/third-party/swfupload/swfupload.speed.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/third-party/swfupload/swfupload.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/third-party/swfupload/swfupload_fp9.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/ueditor/uparse.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/psis" afterPath="$PROJECT_DIR$/psis" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/manage/cabinet.php" afterPath="$PROJECT_DIR$/application/views/manage/cabinet.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/manage/include/header.php" afterPath="$PROJECT_DIR$/application/views/manage/include/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/manage/node_topology.php" afterPath="$PROJECT_DIR$/application/views/manage/node_topology.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/manage/relationship_list_1.php" afterPath="$PROJECT_DIR$/application/views/manage/relationship_list_1.php" />
+    </list>
+    <ignored path="plato.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1382664748448" ignored="false" />
+    <file path="/user.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1378378800375" ignored="false" />
+    <file path="/user_model.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1378301174515" ignored="false" />
+    <file path="/user.function.js" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1374762011822" ignored="false" />
+    <file path="/a.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1374734895035" ignored="false" />
+    <file path="/index.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1377747241873" ignored="false" />
+    <file path="/navbar.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1378450727718" ignored="false" />
+    <file path="/Breadcrumb.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1376042837969" ignored="false" />
+    <file path="/node.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1378464763898" ignored="false" />
+    <file path="/server.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1376039112358" ignored="false" />
+    <file path="/Permission.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1378450664689" ignored="false" />
+    <file path="/group.function.js" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1376537587110" ignored="false" />
+    <file path="/group_model.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1378450391927" ignored="false" />
+    <file path="/pic.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1375010013664" ignored="false" />
+    <file path="/node_model.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1377570242447" ignored="false" />
+    <file path="/test.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1375353698711" ignored="false" />
+    <file path="/group.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1375330090141" ignored="false" />
+    <file path="/server_model.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1378052014116" ignored="false" />
+    <file path="/server_role.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1375841378467" ignored="false" />
+    <file path="/relationship.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1377618590666" ignored="false" />
+    <file path="/pbl.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1375885751621" ignored="false" />
+    <file path="/jquery.multiselect2side.css" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1376039875910" ignored="false" />
+    <file path="/jquery.multiselect2side.js" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1376476800305" ignored="false" />
+    <file path="/relationship_list.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1376290203703" ignored="false" />
+    <file path="/relationship_model.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1376577760147" ignored="false" />
+    <file path="/relationship_list_1.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1377597827528" ignored="false" />
+    <file path="/cabinet.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1382667955017" ignored="false" />
+    <file path="/cabinet_model.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1378049723469" ignored="false" />
+    <file path="/avatar.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1377788944377" ignored="false" />
+    <file path="/header.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1378476536410" ignored="false" />
+    <file path="/config.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1378293346421" ignored="false" />
+    <file path="/login.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1378370972223" ignored="false" />
+    <file path="/dummy.xml" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1378478018959" ignored="false" />
+    <file path="/footer.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1378380060796" ignored="false" />
+    <file path="/node_topology.php" changelist="2ff9853d-0695-4926-a66a-1b51808c28ed" time="1378480015452" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="plato" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="node.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/manage/node.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="14" selection-start="569" selection-end="1605" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="node_topology.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/manage/node_topology.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="74" column="10" selection-start="4863" selection-end="4863" vertical-scroll-proportion="-14.5">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cabinet.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/manage/cabinet.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="448" column="17" selection-start="18265" selection-end="18265" vertical-scroll-proportion="0.7728938">
+              <folding>
+                <marker date="1382671423000" expanded="false" signature="19725:19735" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/manage/include/header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="61" selection-start="2711" selection-end="2711" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1378476587000" expanded="true" signature="2953:2972" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/manage/include/footer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="13" selection-start="323" selection-end="338" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navbar.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/manage/include/navbar.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="95" column="23" selection-start="4871" selection-end="4871" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="node.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/manage/node.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="160" column="47" selection-start="5070" selection-end="5070" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/application/controllers/manage/avatar.php" />
+        <option value="$PROJECT_DIR$/application/controllers/manage/group.php" />
+        <option value="$PROJECT_DIR$/application/controllers/manage/pbl.php" />
+        <option value="$PROJECT_DIR$/application/controllers/manage/pic.php" />
+        <option value="$PROJECT_DIR$/application/controllers/manage/cabinet.php" />
+        <option value="$PROJECT_DIR$/application/controllers/manage/relationship.php" />
+        <option value="$PROJECT_DIR$/application/models/group_model.php" />
+        <option value="$PROJECT_DIR$/application/libraries/Permission.php" />
+        <option value="$PROJECT_DIR$/application/views/manage/include/navbar.php" />
+        <option value="$PROJECT_DIR$/application/controllers/manage/user.php" />
+        <option value="$PROJECT_DIR$/application/controllers/manage/node.php" />
+        <option value="$PROJECT_DIR$/application/views/manage/node.php" />
+        <option value="$PROJECT_DIR$/application/views/manage/relationship_list_1.php" />
+        <option value="$PROJECT_DIR$/application/views/manage/include/header.php" />
+        <option value="$PROJECT_DIR$/application/views/manage/node_topology.php" />
+        <option value="$PROJECT_DIR$/application/views/manage/cabinet.php" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="4" />
+    <option name="y" value="22" />
+    <option name="width" value="1276" />
+    <option name="height" value="778" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents ProjectPane="true" />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plato" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FullScreen" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/application/views/manage" />
+      <recent name="$PROJECT_DIR$/application/libraries" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/application/views/manage" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2ff9853d-0695-4926-a66a-1b51808c28ed" name="Default" comment="" />
+      <created>1374575355081</created>
+      <updated>1374575355081</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="4" y="22" width="1276" height="778" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23821138" sideWeight="0.8789916" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/application/controllers/manage/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/manage/pbl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="9" selection-start="924" selection-end="924" vertical-scroll-proportion="-14.375" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/manage/pic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="9" selection-start="924" selection-end="924" vertical-scroll-proportion="-20.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/group_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="0" selection-start="1419" selection-end="1419" vertical-scroll-proportion="-5.4166665" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/libraries/Permission.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="26" selection-start="2308" selection-end="2308" vertical-scroll-proportion="-9.166667" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/manage/user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="302" column="0" selection-start="9008" selection-end="9008" vertical-scroll-proportion="0.8269231" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/manage/relationship.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="244" column="14" selection-start="7815" selection-end="7815" vertical-scroll-proportion="-0.19723865" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/manage/relationship_list_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="12" selection-start="4347" selection-end="4347" vertical-scroll-proportion="0.6804734" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/manage/relationship_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/manage/include/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="61" selection-start="2711" selection-end="2711" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1378476587000" expanded="true" signature="2953:2972" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/manage/include/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="13" selection-start="323" selection-end="338" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/manage/include/navbar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="23" selection-start="4871" selection-end="4871" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/manage/node.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="160" column="47" selection-start="5070" selection-end="5070" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/manage/node.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="14" selection-start="569" selection-end="1605" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/manage/node_topology.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="10" selection-start="4863" selection-end="4863" vertical-scroll-proportion="-14.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/manage/cabinet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="448" column="17" selection-start="18265" selection-end="18265" vertical-scroll-proportion="0.7728938">
+          <folding>
+            <marker date="1382671423000" expanded="false" signature="19725:19735" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

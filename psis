@@ -16,7 +16,7 @@ def list_node( type = 'all'):
 		       --node parent   : will print the parent node like CMN-NJ without CMN-NJ-[1-9a-zA-Z]
 		       --node nodename : the nodename is a word like CMN-HF,CMN-NJ-Q,or a node startswith this word
 	'''
-	url = "http://localhost/manage/node/get_node_name_api/"
+	url = "http://plato.chenqing.org/manage/node/get_node_name_api/"
 	data = urllib2.urlopen(url).read()
 	nodes = json.loads(data)
 	for node in nodes:
@@ -32,9 +32,9 @@ def list_node( type = 'all'):
 		
 def list_group(group_name = '' ):
 	if group_name.lower() == 'all':
-		url = 'http://localhost/manage/relationship/get_group_api/'
+		url = 'http://plato.chenqing.org/manage/relationship/get_group_api/'
 	else:
-		url = 'http://localhost/manage/relationship/get_group_api/' + group_name.upper()	
+		url = 'http://plato.chenqing.org/manage/relationship/get_group_api/' + group_name.upper()	
 	data = urllib2.urlopen(url).read()
 	group = json.loads(data)
 	for g in group:
@@ -42,9 +42,9 @@ def list_group(group_name = '' ):
 	return 
 def list_relationship(group_name = '',list = 'all'):
         if group_name.lower() == 'all':
-                url = 'http://localhost/manage/relationship/get_relationship_api/'
+                url = 'http://plato.chenqing.org/manage/relationship/get_relationship_api/'
         else:
-                url = 'http://localhost/manage/relationship/get_relationship_api/' + group_name.upper()	
+                url = 'http://plato.chenqing.org/manage/relationship/get_relationship_api/' + group_name.upper()	
 	server = json.loads(urllib2.urlopen(url).read())
 	
 	for i in server:

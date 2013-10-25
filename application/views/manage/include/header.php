@@ -40,6 +40,12 @@
     <link href="<?php echo base_url('assets/fancybox/helpers/jquery.fancybox-buttons.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/fancybox/helpers/jquery.fancybox-thumbs.css') ?>" rel="stylesheet">
 
+    <!-- redactor js 所见即所得的编辑器 -->
+
+    <script src="<?php echo base_url('assets/redactor/redactor.js') ?>"></script>
+    <link href="<?php echo base_url('assets/redactor/redactor.css') ?>" rel="stylesheet">
+
+
 
 
 

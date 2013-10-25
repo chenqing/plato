@@ -437,12 +437,16 @@
 
 
             //往后端数据库里面添加或者更新设备
-            $('#dev_add_or_edit').submit(function(e){
+            $('#dev_add_or_edit').live('submit',function(e){
                 e.preventDefault();
                 var cab_id = $('input[name="cab_id"]').val();
+                $('#liOptionms2side__dx option').attr("selected",true);
                 var server_ids = $('#liOptionms2side__dx').val();
                 var url = host+'/manage/cabinet/server_add_or_edit'
-                console.info(server_ids);
+                if( server_ids === null){
+                    alert('感觉你还没选择设备，亲');
+                    return false;
+                }
                 var server_list = "";
                 $.each(server_ids,function(index,value){
                     if(server_ids.length -1 != index){

@@ -94,7 +94,7 @@
         </div>
         <div class="modal-body">
             <h5>红色是FSCS，绿色是FC</h5>
-            
+
         <p id="fscs" class="well"></p>
 
         </div>
