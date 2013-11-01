@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * @author qing.chen@chinacache.com
+ * @author chenqing663@foxmail.com
  * @desc	a CI controller index
  * @since 0.1
  * @date  2013-03-07
@@ -25,7 +25,9 @@ class Node extends CI_Controller
         $this->load->library('breadcrumb');
         $this->config->load('pagination');
         $this->load->helper('date');
-
+       if( ! $this->session->userdata('is_loged_in') ){
+           redirect(site_url('manage/index'));
+       }
     }
 
     public function index()

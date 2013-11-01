@@ -29,6 +29,9 @@
                             ?>
 
                             <a  class=" fancybox btn btn-small btn-inverse" style="color: #ffffff;" href="#login1"> 登陆 </a>
+                            <script>
+                            window.history.forward(1);
+                            </script>
 
                         <?php }?>
                     </p>
@@ -40,7 +43,7 @@
                         <li><a href="<?php echo base_url('manage/server') ;?>">设备管理</a></li>
                         <li><a href="<?php echo base_url('manage/relationship') ;?>">设备关系管理</a></li>
                         <li><a href="<?php echo base_url('manage/avatar') ;?>">批量运行</a></li>
-                        <li><a href="<?php echo base_url('manage/pbl') ;?>">PBL网络管理</a></li>
+                        <li><a href="<?php echo base_url('manage/pbl') ;?>">网络管理</a></li>
                         <?php if($this->permission->is_operation() || $this->permission->is_root()  ){ ?>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">用户管理<b class="caret"></b></a>

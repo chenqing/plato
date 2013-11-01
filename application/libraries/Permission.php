@@ -57,7 +57,7 @@ class permission
     public function get_group()
     {
         $group_id = $this->CI->session->userdata('group_id');
-        $name = $this->CI->Group_model->get_group_name_by_id($group_id);
+        $name = $this->CI->Group_model->get_group_name($group_id);
         $group_name = (!empty($name))?$name:'guest';
         return $group_name ;
     }
@@ -117,24 +117,20 @@ class permission
 
     public function is_root()
     {
-
-        if($this->get_group() == "root"){
+        if($this->get_group() == 'root'){
             return true ;
-        }else{
-
-            return false ;
         }
 
+        return false ;
     }
 
     public function is_operation()
     {
         if($this->get_group() == 'operation'){
             return true ;
-        }else{
-            return false ;
         }
 
+        return false ;
     }
 
     public function is_standard()

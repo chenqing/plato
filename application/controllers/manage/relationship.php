@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * @author qing.chen@chinacache.com
+ * @author chenqing663@foxmail.com
  * @desc	a CI controller manage oic
  * @since 0.1
  * @date  2013-07-08
@@ -62,6 +62,9 @@ class Relationship extends CI_Controller
     }
     public function relationship_list()
     {
+               if( ! $this->session->userdata('is_loged_in') ){
+                               redirect(site_url('manage/index'));
+                }
 
         $config['base_url'] = site_url('manage/relationship/relationship_list');
         $config['total_rows'] = $this->db->count_all('relationship_real');

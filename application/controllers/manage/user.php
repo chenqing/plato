@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * @author qing.chen@chinacache.com
+ * @author chenqing663@foxmail.com
  * @desc	a CI controller manage user
  * @since 0.1
  * @date  2013-03-07
@@ -251,12 +251,13 @@ class User extends CI_Controller
             exit();
         }
 
-        if($this->config->item('use_ldap')){
+/*        if($this->config->item('use_ldap')){
             $ds = ldap_connect($this->config->item('ldap_url'));
             $bind = @ldap_bind($ds,$this->input->post('username'),$pass);
         }
-            //if($this->User_model->validate_user())
-            if($bind)
+ */
+        if($this->User_model->validate_user())
+        //    if($bind)
             {
                 $data = array(
                     'user_name' => $this->input->post('username'),
@@ -295,8 +296,9 @@ class User extends CI_Controller
 
     public function logout()
     {
+        $this->session->unset_userdata('is_loged_in');
         $this->session->sess_destroy();
-        redirect('manage/index/');
+        redirect('manage/index/', 'location', 301);
     }
 }
 

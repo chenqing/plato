@@ -1,6 +1,4 @@
 plato
 =====
 
-自动化运维平台
-
-demo: http://plato.chenqing.org
+服务器资产及关系管理系统

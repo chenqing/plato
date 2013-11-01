@@ -22,7 +22,7 @@
         <table id="show-table" class="table table-hover table-condensed table-striped" style="margin-top: 5px;">
             <tbody><tr><th>概览ID</th><th>所属节点</th><th>概览名称</th><th>操作</th><th></th><th>设备管理</th><th>拓扑图</th></tr>
             <tr><td>7</td><td>CMN-HF-1</td><td>安徽移动服务概览</td>
-                <td><a href="#topologyEdit" data-toggle="modal"  data-id="7" class=" edit-none btn btn-info btn-small">编辑</a></td>
+                <td><a href="#topologyEdit" data-id="7" class="fancybox edit-none btn btn-info btn-small">编辑</a></td>
                 <td><button class="btn btn-danger btn-small	" id="icb-delete">删除</button></td><td><a href="#deviceEdit" data-toggle="modal" data-id="7" id="edit-device" class="btn btn-success btn-small	">上传拓扑</a></td><td><a href="#cabinetList" data-toggle="modal" class="btn btn-warning btn-small	" id="check-dev" data-id="7">查看</a></td>
             </tr>
             <tr><td>2</td><td>CMN-NJ-L</td><td>江苏移动服务概览</td>
@@ -56,31 +56,62 @@
 <!-- begin of javascript -->
 <script >
     $(document).ready(function() {
+        $(".fancybox").fancybox({
+            'hideOnContentClick': true,
+            openEffect  : 'none',
+            closeEffect	: 'none',
+            helpers: {
 
-            $('.redactor_content').redactor({
-                imageUpload: '../demo/scripts/image_upload.php'
-            });
+                overlay : {
+                    opacity:'0.6',
+                    closeClick : true,  // if true, fancyBox will be closed when user clicks on the overlay
+                    speedOut   : 200,   // duration of fadeOut animation
+                    showEarly  : true,  // indicates if should be opened immediately or wait until the content is ready
+                    // css        : {'backgroundColor':'#000000'},    // custom CSS properties
+                    locked     : false   // if true, the content will be locked into overlay
+                }
+            }
 
+        });
+        //readtor js
+        $('.edit-none').click(function(){
+            $('#redactor_content').redactor();
+        }
+        );
     });
 </script>
 
 
-<div id="topologyEdit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width: 650px;">
+    <form method="post" id="topologyEdit" class="fancybox" style="display: none; width: 600px; ">
+        <textarea id="redactor_content" name="content">
+            <h2>Hello and welcome</h2>
+            <pre>
 
-    <div class="modal-body">
-        <textarea class="redactor_content" name="content">
-            <h2>编辑节点概览</h2>
+                $ds = ldap_connect('ldap.cxx.com');
+                if(! $ds)
+                {
+                    echo "connect error";
+                }
+                #if($argc != 3){
+                #  echo "need 2 argv\n";
+                #  exit();
+                #}
+                #$user = $argv[1];
+                $passwd = $argv[2];
+                $bind = @ldap_bind($ds,$user,$passwd);
 
+                if(! $bind){
+                    echo "error\n";
+                }else{
+                    echo "ok\n";
+                }
+
+
+
+            </pre>
         </textarea>
-    </div>
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-        <input class="btn btn-primary" type="submit" value="保存">
-    </div>
+        <br>
+        <p class="text-center"><input type="submit" value="提交" name="send" class="btn" /></p>
     </form>
-</div>
-
-
-
 
 

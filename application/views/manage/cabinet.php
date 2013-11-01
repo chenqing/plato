@@ -411,6 +411,7 @@
                                 html +='<option value="'+data[i].server_id+'">'+data[i].server_name+'</option> ';
                             }
                             $('#liOptionms2side__sx').html(html);
+                            $('#liOptionms2side__sx option:last').attr('selected',true);
                         }
                     }
                 );
@@ -437,6 +438,7 @@
 
 
             //往后端数据库里面添加或者更新设备
+            //$('#dev_add_or_edit').submit(function(e){
             $('#dev_add_or_edit').live('submit',function(e){
                 e.preventDefault();
                 var cab_id = $('input[name="cab_id"]').val();
@@ -446,7 +448,8 @@
                 if( server_ids === null){
                     alert('感觉你还没选择设备，亲');
                     return false;
-                }
+                }                    
+               // console.info(server_ids);
                 var server_list = "";
                 $.each(server_ids,function(index,value){
                     if(server_ids.length -1 != index){
@@ -456,7 +459,6 @@
 
                     }
                 });
-                console.info(server_list);
                 $.post(
                     url,
                     {'cab_id':cab_id,'dev_list':server_list},

@@ -1,0 +1,84 @@
+.ms2side__div {
+	clear: left;
+	width: 100%;
+	padding: 1px;
+	float: left;
+	background : url('') repeat-x; /* HACK FOR CHROME */
+}
+
+.ms2side__select {
+	float: left;
+}
+
+.ms2side__header {
+	color: #000088;
+	margin-left: 3px;
+	width: 220px;
+	height: 20px;
+
+}
+
+.ms2side__options, .ms2side__updown {
+	float: left;
+	font-size: 10pt;
+	margin: 0;
+	padding: 0 8px;
+	width: 40px;
+	color: black;
+	text-align: center;
+	overflow: hidden;
+}
+
+.ms2side__updown {
+	font-size: 9pt;
+}
+
+
+
+.ms2side__div select {
+	width: 220px;
+	float: left;
+}
+
+
+/* INPUT FOR SEARCH */
+.ms2side__header input {
+	width: 80px;
+	height: 12px;
+}
+
+.ms2side__header input.wait {
+	width: 80px;
+	height: 12px;
+}
+
+.ms2side__header input.small {
+	width: 50px;
+	height: 12px;
+}
+
+
+/* INPUT FOR SELECT SEARCH */
+.ms2side__header select {
+	width: 150px;
+	font-size: 11px;
+	height: 30px;
+	float: none;
+}
+
+.ms2side__header select.small {
+	width: 70px;
+}
+
+
+/* REMOVE FILTER OPTION FOR SEARCH */
+.ms2side__header a {
+	font-size: 10pt;
+	padding: 0 8px;
+	width: 16px;
+	height: 16px;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	margin: 0 0 0 3px;
+}

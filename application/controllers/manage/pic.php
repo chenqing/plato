@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * @author qing.chen@chinacache.com
+ * @author chenqing663@foxmail.com
  * @desc	a CI controller manage oic
  * @since 0.1
  * @date  2013-07-08
