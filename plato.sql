@@ -234,10 +234,7 @@ LOCK TABLES `user` WRITE;
 
 INSERT INTO `user` (`user_id`, `group_id`, `user_name`, `user_password`, `user_privilege`, `last_login`, `is_active`)
 VALUES
-	(3,1,'qing.chen','8d925a558dbfe96e63faaac3e3fab8af6703abe9',64,'2013-02-28 13:56:40',1),
-	(25,3,'squid','40bd001563085fc35165329ea1ff5c5ecbdbbeef',62,'2013-07-23  05:50',1),
-	(28,1,'yanjun.liu','4b832c546fde5d2a73a16fe4ec7ed09da78cd2b0',124,'2013-07-27  03:23',1),
-	(29,1,'cpis','4b832c546fde5d2a73a16fe4ec7ed09da78cd2b0',62,'2013-07-28  11:09',1);
+	(3,1,'qing.chen','8d925a558dbfe96e63faaac3e3fab8af6703abe9',64,'2013-02-28 13:56:40',1)
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
